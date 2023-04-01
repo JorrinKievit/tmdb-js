@@ -1,0 +1,27 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build -- --watch --onSuccess \"node dist/index.js\"",
+    "build": "tsup --format esm --dts --sourcemap --clean src/index.ts",
+    "lint": "eslint *.ts"
+  },
+  "dependencies": {
+    "tmdb-js-node": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.9",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.7.0",
+    "typescript": "^4.5.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

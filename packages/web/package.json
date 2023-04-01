@@ -1,0 +1,43 @@
+{
+  "name": "tmdb-js-web",
+  "version": "1.0.1",
+  "description": "tmdb-js-web is a fully-typed TypeScript wrapper for the TMDB API. It is designed for use in browser-based JavaScript applications and supports both v3 and v4 of the TMDB API.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "tsup",
+    "lint": "eslint *.ts"
+  },
+  "repositories": {
+    "type": "git",
+    "url": "git+https://github.com/JorrinKievit/tmdb-js.git"
+  },
+  "keywords": [
+    "tmdb",
+    "tmdb-js",
+    "tmdb api",
+    "tmdb wrapper",
+    "tmdb typescript",
+    "tmdb javascript",
+    "tmdb browser"
+  ],
+  "author": "JorrinKievit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorrinKievit/tmdb-js/issues"
+  },
+  "homepage": "https://github.com/JorrinKievit/tmdb-js#readme",
+  "devDependencies": {
+    "@swc/core": "^1.3.42",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.7.0",
+    "typescript": "^4.5.2"
+  },
+  "files": [
+    "dist"
+  ]
+}
