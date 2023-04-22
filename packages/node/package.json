@@ -1,6 +1,6 @@
 {
   "name": "tmdb-js-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "tmdb-js-node is a fully-typed TypeScript wrapper for the TMDB API. It is designed for use in Node.js applications and supports both v3 and v4 of the TMDB API",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

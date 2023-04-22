@@ -25,3 +25,8 @@ export interface TrendingGetTrendingResult {
   origin_country?: string[];
   original_name?: string;
 }
+
+export interface TrendingGetTrendingParams {
+  media_type: "all" | "movie" | "tv" | "person";
+  time_window: "day" | "week";
+}

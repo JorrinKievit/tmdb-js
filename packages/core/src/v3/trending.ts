@@ -8,9 +8,9 @@ export const createV3TrendingMethods = (
   url: string
 ): ITMDBAPI["v3"]["trending"] => {
   return {
-    getTrending: async (trendingId: string) => {
+    getTrending: async (mediaType, timeWindow) => {
       const res = await client.get<TrendingGetTrendingResponse>(
-        buildV3Url(apiKey, `${url}trending/${trendingId}`)
+        buildV3Url(apiKey, `${url}trending/${mediaType}/${timeWindow}`)
       );
 
       return res;

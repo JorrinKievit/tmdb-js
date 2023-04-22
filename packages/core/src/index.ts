@@ -263,6 +263,7 @@ import {
   WatchProvidersGetMovieProvidersResponse,
   WatchProvidersGetTVProvidersParams,
   WatchProvidersGetTVProvidersResponse,
+  TrendingGetTrendingParams,
 } from "./types/v3";
 import {
   V4AccountGetListsParams,
@@ -620,8 +621,8 @@ interface INetworks {
 
 interface ITrending {
   getTrending: (
-    mediaType: string,
-    timeWindow: string
+    mediaType: TrendingGetTrendingParams["media_type"],
+    timeWindow: TrendingGetTrendingParams["time_window"]
   ) => Promise<TrendingGetTrendingResponse>;
 }
 
