@@ -1,15 +1,19 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
+    "tmdb-js-core#build": {},
+    "tmdb-js-web#build": {
+      "dependsOn": ["tmdb-js-core#build"],
+      "outputs": ["dist/**"]
+    },
+    "tmdb-js-node#build": {
+      "dependsOn": ["tmdb-js-core#build"],
       "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": []
     },
     "dev": {
-      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true,
       "outputs": ["dist/**"]

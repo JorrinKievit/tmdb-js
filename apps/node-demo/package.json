@@ -1,6 +1,6 @@
 {
   "name": "node-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "private": true,
   "main": "dist/index.js",

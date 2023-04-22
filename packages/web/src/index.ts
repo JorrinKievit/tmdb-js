@@ -1,4 +1,4 @@
-import TMDBAPI, { Http, ITMDBAPI, TMDBApiError } from "../../core";
+import TMDBAPI, { Http, TMDBApiError, ITMDBAPI } from "../../core";
 
 export * from "../../core";
 

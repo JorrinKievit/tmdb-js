@@ -8,16 +8,9 @@ function App() {
 
   useEffect(() => {
     const tmdbApi = new TMDBWebAPI("YOUR_API_KEY");
-    tmdbApi.v3.search
-      .searchMulti({
-        query: "star wars",
-      })
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    tmdbApi.v3.trending.getTrending("all", "day").then((res) => {
+      console.log(res)
+    });
   }, []);
 
   return (
