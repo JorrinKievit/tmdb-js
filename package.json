@@ -11,6 +11,10 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "add-changeset": "changeset add",
+    "prerelease": "pnpm run build",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
