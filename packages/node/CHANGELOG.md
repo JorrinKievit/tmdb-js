@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.1.0
+
+### Minor Changes
+
+- 530d708: Typesafe append_to_response
+
 ## 1.0.3
 
 ### Patch Changes
