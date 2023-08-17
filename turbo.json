@@ -10,6 +10,15 @@
       "dependsOn": ["tmdb-js-core#build"],
       "outputs": ["dist/**"]
     },
+    "tmdb-js-core#dev": {},
+    "tmdb-js-web#dev": {
+      "dependsOn": ["tmdb-js-core#dev"],
+      "outputs": ["dist/**"]
+    },
+    "tmdb-js-node#dev": {
+      "dependsOn": ["tmdb-js-core#dev"],
+      "outputs": ["dist/**"]
+    },
     "lint": {
       "outputs": []
     },

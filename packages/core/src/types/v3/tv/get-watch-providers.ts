@@ -4,10 +4,7 @@ export interface TVGetWatchProvidersResponse {
 }
 
 export interface TVGetWatchProvidersResults {
-  [key: string]:
-    | TVGetWatchProvidersAr
-    | TVGetWatchProvidersAt
-    | TVGetWatchProvidersRu;
+  [key: string]: TVGetWatchProvidersAr | TVGetWatchProvidersAt | TVGetWatchProvidersRu;
 }
 
 export interface TVGetWatchProvidersAr {

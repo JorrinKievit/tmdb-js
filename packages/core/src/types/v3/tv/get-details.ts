@@ -1,3 +1,5 @@
+import { TVAppendToResponse } from "../../append-to-response";
+
 export interface TVGetDetailsResponse {
   backdrop_path: string;
   created_by: TVGetDetailsCreatedBy[];
@@ -86,7 +88,7 @@ export interface TVGetDetailsSpokenLanguage {
   name: string;
 }
 
-export interface TVGetDetailsParams {
+export interface TVGetDetailsParams<T extends TVAppendToResponse[]> {
   language?: string;
-  append_to_response?: string;
+  append_to_response?: T;
 }

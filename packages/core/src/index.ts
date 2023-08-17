@@ -1,3 +1,4 @@
+import { MoviesAppendToResponse, PeopleAppendToResponse, TVAppendToResponse, TVEpisodesAppendToResponse, TVSeasonsAppendToResponse } from "./types/append-to-response";
 import {
   AccountGetDetailsParams,
   AccountGetDetailsResponse,
@@ -264,6 +265,7 @@ import {
   WatchProvidersGetTVProvidersParams,
   WatchProvidersGetTVProvidersResponse,
   TrendingGetTrendingParams,
+  GetDetailsResponse,
 } from "./types/v3";
 import {
   V4AccountGetListsParams,
@@ -337,68 +339,26 @@ import { createV4AuthMethods } from "./v4/auth";
 import { createV4ListMethods } from "./v4/list";
 
 interface IAccount {
-  getDetails: (
-    params: AccountGetDetailsParams
-  ) => Promise<AccountGetDetailsResponse>;
-  getCreatedLists: (
-    params: AccountGetCreatedListsParams,
-    accountId?: number
-  ) => Promise<AccountGetCreatedListsResponse>;
-  getFavoriteMovies: (
-    params: AccountGetFavoriteMoviesParams,
-    accountId?: number
-  ) => Promise<AccountGetFavoriteMoviesResponse>;
-  getFavoriteTVShows: (
-    params: AccountGetFavoriteTVShowsParams,
-    accountId?: number
-  ) => Promise<AccountGetFavoriteTVShowsResponse>;
-  markAsFavorite: (
-    params: AccountMarkAsFavoriteParams,
-    body: AccountMarkAsFavoriteBody,
-    accountId?: number
-  ) => Promise<AccountMarkAsFavoriteResponse>;
-  getRatedMovies: (
-    params: AccountGetRatedMoviesParams,
-    accountId?: number
-  ) => Promise<AccountGetRatedMoviesResponse>;
-  getRatedTVShows: (
-    params: AccountGetRatedTVShowsParams,
-    accountId?: number
-  ) => Promise<AccountGetRatedTVShowsResponse>;
-  getRatedTVEpisodes: (
-    params: AccountGetRatedTVEpisodesParams,
-    accountId?: number
-  ) => Promise<AccountGetRatedTVEpisodesResponse>;
-  getMovieWatchlist: (
-    params: AccountGetMovieWatchlistParams,
-    accountId?: number
-  ) => Promise<AccountGetMovieWatchlistResponse>;
-  getTVShowWatchlist: (
-    params: AccountGetTVShowWatchlistParams,
-    accountId?: number
-  ) => Promise<AccountGetTVShowWatchlistResponse>;
-  addToWatchlist: (
-    params: AccountAddToWatchlistParams,
-    body: AccountAddToWatchlistBody,
-    accountId?: number
-  ) => Promise<AccountAddToWatchlistResponse>;
+  getDetails: (params: AccountGetDetailsParams) => Promise<AccountGetDetailsResponse>;
+  getCreatedLists: (params: AccountGetCreatedListsParams, accountId?: number) => Promise<AccountGetCreatedListsResponse>;
+  getFavoriteMovies: (params: AccountGetFavoriteMoviesParams, accountId?: number) => Promise<AccountGetFavoriteMoviesResponse>;
+  getFavoriteTVShows: (params: AccountGetFavoriteTVShowsParams, accountId?: number) => Promise<AccountGetFavoriteTVShowsResponse>;
+  markAsFavorite: (params: AccountMarkAsFavoriteParams, body: AccountMarkAsFavoriteBody, accountId?: number) => Promise<AccountMarkAsFavoriteResponse>;
+  getRatedMovies: (params: AccountGetRatedMoviesParams, accountId?: number) => Promise<AccountGetRatedMoviesResponse>;
+  getRatedTVShows: (params: AccountGetRatedTVShowsParams, accountId?: number) => Promise<AccountGetRatedTVShowsResponse>;
+  getRatedTVEpisodes: (params: AccountGetRatedTVEpisodesParams, accountId?: number) => Promise<AccountGetRatedTVEpisodesResponse>;
+  getMovieWatchlist: (params: AccountGetMovieWatchlistParams, accountId?: number) => Promise<AccountGetMovieWatchlistResponse>;
+  getTVShowWatchlist: (params: AccountGetTVShowWatchlistParams, accountId?: number) => Promise<AccountGetTVShowWatchlistResponse>;
+  addToWatchlist: (params: AccountAddToWatchlistParams, body: AccountAddToWatchlistBody, accountId?: number) => Promise<AccountAddToWatchlistResponse>;
 }
 
 interface IAuthentication {
   createGuestSession: () => Promise<AuthenticationCreateGuestSessionResponse>;
   createRequestToken: () => Promise<AuthenticationCreateRequestTokenResponse>;
-  createSession: (
-    body: AuthenticationCreateSessionBody
-  ) => Promise<AuthenticationCreateSessionResponse>;
-  createSessionWithLogin: (
-    body: AuthenticationCreateSessionWithLoginBody
-  ) => Promise<AuthenticationCreateSessionWithLoginResponse>;
-  createSessionFromV4AccessToken: (
-    body: AuthenticationCreateSessionFromV4AccessTokenBody
-  ) => Promise<AuthenticationCreateSessionFromV4AccessTokenResponse>;
-  deleteSession: (
-    body: AuthenticationDeleteSessionBody
-  ) => Promise<AuthenticationDeleteSessionResponse>;
+  createSession: (body: AuthenticationCreateSessionBody) => Promise<AuthenticationCreateSessionResponse>;
+  createSessionWithLogin: (body: AuthenticationCreateSessionWithLoginBody) => Promise<AuthenticationCreateSessionWithLoginResponse>;
+  createSessionFromV4AccessToken: (body: AuthenticationCreateSessionFromV4AccessTokenBody) => Promise<AuthenticationCreateSessionFromV4AccessTokenResponse>;
+  deleteSession: (body: AuthenticationDeleteSessionBody) => Promise<AuthenticationDeleteSessionResponse>;
 }
 
 interface ICertifications {
@@ -407,37 +367,20 @@ interface ICertifications {
 }
 
 interface IChanges {
-  getMovieChangeList: (
-    params?: ChangesGetMovieChangeListParams
-  ) => Promise<ChangesGetMovieChangeListResponse>;
-  getTVChangeList: (
-    params?: ChangesGetTVChangeListParams
-  ) => Promise<ChangesGetTVChangeListResponse>;
-  getPersonChangeList: (
-    params?: ChangesGetPersonChangeListParams
-  ) => Promise<ChangesGetPersonChangeListResponse>;
+  getMovieChangeList: (params?: ChangesGetMovieChangeListParams) => Promise<ChangesGetMovieChangeListResponse>;
+  getTVChangeList: (params?: ChangesGetTVChangeListParams) => Promise<ChangesGetTVChangeListResponse>;
+  getPersonChangeList: (params?: ChangesGetPersonChangeListParams) => Promise<ChangesGetPersonChangeListResponse>;
 }
 
 interface ICollections {
-  getDetails: (
-    collectionId: number,
-    params?: CollectionsGetDetailsParams
-  ) => Promise<CollectionsGetDetailsResponse>;
-  getImages: (
-    collectionId: number,
-    params?: CollectionsGetImagesParams
-  ) => Promise<CollectionsGetImagesResponse>;
-  getTranslations: (
-    collectionId: number,
-    params?: CollectionsGetTranslationsParams
-  ) => Promise<CollectionsGetTranslationsResponse>;
+  getDetails: (collectionId: number, params?: CollectionsGetDetailsParams) => Promise<CollectionsGetDetailsResponse>;
+  getImages: (collectionId: number, params?: CollectionsGetImagesParams) => Promise<CollectionsGetImagesResponse>;
+  getTranslations: (collectionId: number, params?: CollectionsGetTranslationsParams) => Promise<CollectionsGetTranslationsResponse>;
 }
 
 interface ICompanies {
   getDetails: (companyId: number) => Promise<CompaniesGetDetailsResponse>;
-  getAlternativeNames: (
-    companyId: number
-  ) => Promise<CompaniesGetAlternativeNamesResponse>;
+  getAlternativeNames: (companyId: number) => Promise<CompaniesGetAlternativeNamesResponse>;
   getImages: (companyId: number) => Promise<CompaniesGetImagesResponse>;
 }
 
@@ -455,214 +398,88 @@ interface ICredits {
 }
 
 interface IDiscover {
-  movieDiscover: (
-    params?: DiscoverMovieDiscoverParams
-  ) => Promise<DiscoverMovieDiscoverResponse>;
-  tvDiscover: (
-    params?: DiscoverTVDiscoverParams
-  ) => Promise<DiscoverTVDiscoverResponse>;
+  movieDiscover: (params?: DiscoverMovieDiscoverParams) => Promise<DiscoverMovieDiscoverResponse>;
+  tvDiscover: (params?: DiscoverTVDiscoverParams) => Promise<DiscoverTVDiscoverResponse>;
 }
 
 interface IFind {
-  findById: (
-    externalId: string,
-    params: FindFindByIdParams
-  ) => Promise<FindFindByIdResponse>;
+  findById: (externalId: string, params: FindFindByIdParams) => Promise<FindFindByIdResponse>;
 }
 
 interface IGenres {
-  getMovieList: (
-    params?: GenresGetMovieListParams
-  ) => Promise<GenresGetMovieListResponse>;
-  getTVList: (
-    params?: GenresGetTVListParams
-  ) => Promise<GenresGetTVListResponse>;
+  getMovieList: (params?: GenresGetMovieListParams) => Promise<GenresGetMovieListResponse>;
+  getTVList: (params?: GenresGetTVListParams) => Promise<GenresGetTVListResponse>;
 }
 
 interface IGuestSessions {
-  getRatedMovies: (
-    guestSessionId: string,
-    params?: GuestSessionsGetRatedMoviesParams
-  ) => Promise<GuestSessionsGetRatedMoviesResponse>;
-  getRatedTVShows: (
-    guestSessionId: string,
-    params?: GuestSessionsGetRatedTVShowsParams
-  ) => Promise<GuestSessionsGetRatedTVShowsResponse>;
-  getRatedTVEpisodes: (
-    guestSessionId: string,
-    params?: GuestSessionsGetRatedTVEpisodesParams
-  ) => Promise<GuestSessionsGetRatedTVEpisodesResponse>;
+  getRatedMovies: (guestSessionId: string, params?: GuestSessionsGetRatedMoviesParams) => Promise<GuestSessionsGetRatedMoviesResponse>;
+  getRatedTVShows: (guestSessionId: string, params?: GuestSessionsGetRatedTVShowsParams) => Promise<GuestSessionsGetRatedTVShowsResponse>;
+  getRatedTVEpisodes: (guestSessionId: string, params?: GuestSessionsGetRatedTVEpisodesParams) => Promise<GuestSessionsGetRatedTVEpisodesResponse>;
 }
 
 interface IKeywords {
   getDetails: (keywordId: number) => Promise<KeywordsGetDetailsResponse>;
-  getMovies: (
-    keywordId: number,
-    params?: KeywordsGetMoviesParams
-  ) => Promise<KeywordsGetMoviesResponse>;
+  getMovies: (keywordId: number, params?: KeywordsGetMoviesParams) => Promise<KeywordsGetMoviesResponse>;
 }
 
 interface ILists {
-  getDetails: (
-    listId: string,
-    params?: ListsGetDetailsParams
-  ) => Promise<ListsGetDetailsResponse>;
-  checkItemStatus: (
-    listId: string,
-    params: ListsCheckItemStatusParams
-  ) => Promise<ListsCheckItemStatusResponse>;
-  createList: (
-    body: ListsCreateListBody,
-    params: ListsCreateListParams
-  ) => Promise<ListsCreateListResponse>;
-  addMovie: (
-    listId: string,
-    body: ListsAddMovieBody,
-    params: ListsAddMovieParams
-  ) => Promise<ListsAddMovieResponse>;
-  removeMovie: (
-    listId: string,
-    body: ListsRemoveMovieBody,
-    params: ListsRemoveMovieParams
-  ) => Promise<ListsRemoveMovieResponse>;
-  clearList: (
-    listId: string,
-    params: ListsClearListParams
-  ) => Promise<ListsClearListResponse>;
-  deleteList: (
-    listId: string,
-    params: ListsDeleteListParams
-  ) => Promise<ListsDeleteListResponse>;
+  getDetails: (listId: string, params?: ListsGetDetailsParams) => Promise<ListsGetDetailsResponse>;
+  checkItemStatus: (listId: string, params: ListsCheckItemStatusParams) => Promise<ListsCheckItemStatusResponse>;
+  createList: (body: ListsCreateListBody, params: ListsCreateListParams) => Promise<ListsCreateListResponse>;
+  addMovie: (listId: string, body: ListsAddMovieBody, params: ListsAddMovieParams) => Promise<ListsAddMovieResponse>;
+  removeMovie: (listId: string, body: ListsRemoveMovieBody, params: ListsRemoveMovieParams) => Promise<ListsRemoveMovieResponse>;
+  clearList: (listId: string, params: ListsClearListParams) => Promise<ListsClearListResponse>;
+  deleteList: (listId: string, params: ListsDeleteListParams) => Promise<ListsDeleteListResponse>;
 }
 
 interface IMovies {
-  getDetails: (
-    movieId: number,
-    params?: MoviesGetDetailsParams
-  ) => Promise<MoviesGetDetailsResponse>;
-  getAccountStates: (
-    movieId: number,
-    params: MoviesGetAccountStatesParams
-  ) => Promise<MoviesGetAccountStatesResponse>;
-  getAlternativeTitles: (
-    movieId: number,
-    params?: MoviesGetAlternativeTitlesParams
-  ) => Promise<MoviesGetAlternativeTitlesResponse>;
-  getChanges: (
-    movieId: number,
-    params?: MoviesGetChangesParams
-  ) => Promise<MoviesGetChangesResponse>;
-  getCredits: (
-    movieId: number,
-    params?: MoviesGetCreditsParams
-  ) => Promise<MoviesGetCreditsResponse>;
+  getDetails: <T extends MoviesAppendToResponse[]>(movieId: number, params?: MoviesGetDetailsParams<T>) => Promise<GetDetailsResponse<T>>;
+  getAccountStates: (movieId: number, params: MoviesGetAccountStatesParams) => Promise<MoviesGetAccountStatesResponse>;
+  getAlternativeTitles: (movieId: number, params?: MoviesGetAlternativeTitlesParams) => Promise<MoviesGetAlternativeTitlesResponse>;
+  getChanges: (movieId: number, params?: MoviesGetChangesParams) => Promise<MoviesGetChangesResponse>;
+  getCredits: (movieId: number, params?: MoviesGetCreditsParams) => Promise<MoviesGetCreditsResponse>;
   getExternalIds: (movieId: number) => Promise<MoviesGetExternalIdsResponse>;
-  getImages: (
-    movieId: number,
-    params?: MoviesGetImagesParams
-  ) => Promise<MoviesGetImagesResponse>;
+  getImages: (movieId: number, params?: MoviesGetImagesParams) => Promise<MoviesGetImagesResponse>;
   getKeywords: (movieId: number) => Promise<MoviesGetKeywordsResponse>;
-  getLists: (
-    movieId: number,
-    params?: MoviesGetListsParams
-  ) => Promise<MoviesGetListsResponse>;
-  getRecommendations: (
-    movieId: number,
-    params?: MoviesGetRecommendationsParams
-  ) => Promise<MoviesGetRecommendationsResponse>;
+  getLists: (movieId: number, params?: MoviesGetListsParams) => Promise<MoviesGetListsResponse>;
+  getRecommendations: (movieId: number, params?: MoviesGetRecommendationsParams) => Promise<MoviesGetRecommendationsResponse>;
   getReleaseDates: (movieId: number) => Promise<MoviesGetReleaseDatesResponse>;
-  getReviews: (
-    movieId: number,
-    params?: MoviesGetReviewsParams
-  ) => Promise<MoviesGetReviewsResponse>;
-  getSimilarMovies: (
-    movieId: number,
-    params?: MoviesGetSimilarMoviesParams
-  ) => Promise<MoviesGetSimilarMoviesResponse>;
+  getReviews: (movieId: number, params?: MoviesGetReviewsParams) => Promise<MoviesGetReviewsResponse>;
+  getSimilarMovies: (movieId: number, params?: MoviesGetSimilarMoviesParams) => Promise<MoviesGetSimilarMoviesResponse>;
   getTranslations: (movieId: number) => Promise<MoviesGetTranslationsResponse>;
-  getVideos: (
-    movieId: number,
-    params?: MoviesGetVideosParams
-  ) => Promise<MoviesGetVideosResponse>;
-  getWatchProviders: (
-    movieId: number
-  ) => Promise<MoviesGetWatchProvidersResponse>;
-  rateMovie: (
-    movieId: number,
-    body: MoviesRateMovieBody,
-    params?: MoviesRateMovieParams
-  ) => Promise<MoviesRateMovieResponse>;
-  deleteRating: (
-    movieId: number,
-    params?: MoviesDeleteRatingParams
-  ) => Promise<MoviesDeleteRatingResponse>;
+  getVideos: (movieId: number, params?: MoviesGetVideosParams) => Promise<MoviesGetVideosResponse>;
+  getWatchProviders: (movieId: number) => Promise<MoviesGetWatchProvidersResponse>;
+  rateMovie: (movieId: number, body: MoviesRateMovieBody, params?: MoviesRateMovieParams) => Promise<MoviesRateMovieResponse>;
+  deleteRating: (movieId: number, params?: MoviesDeleteRatingParams) => Promise<MoviesDeleteRatingResponse>;
   getLatest: () => Promise<MoviesGetLatestResponse>;
-  getNowPlaying: (
-    params?: MoviesGetNowPlayingParams
-  ) => Promise<MoviesGetNowPlayingResponse>;
-  getPopular: (
-    params?: MoviesGetPopularParams
-  ) => Promise<MoviesGetPopularResponse>;
-  getTopRated: (
-    params?: MoviesGetTopRatedParams
-  ) => Promise<MoviesGetTopRatedResponse>;
-  getUpcoming: (
-    params?: MoviesGetUpcomingParams
-  ) => Promise<MoviesGetUpcomingResponse>;
+  getNowPlaying: (params?: MoviesGetNowPlayingParams) => Promise<MoviesGetNowPlayingResponse>;
+  getPopular: (params?: MoviesGetPopularParams) => Promise<MoviesGetPopularResponse>;
+  getTopRated: (params?: MoviesGetTopRatedParams) => Promise<MoviesGetTopRatedResponse>;
+  getUpcoming: (params?: MoviesGetUpcomingParams) => Promise<MoviesGetUpcomingResponse>;
 }
 
 interface INetworks {
   getDetails: (networkId: number) => Promise<NetworksGetDetailsResponse>;
-  getAlternativeNames: (
-    networkId: number
-  ) => Promise<NetworksGetAlternativeNamesResponse>;
+  getAlternativeNames: (networkId: number) => Promise<NetworksGetAlternativeNamesResponse>;
   getImages: (networkId: number) => Promise<NetworksGetImagesResponse>;
 }
 
 interface ITrending {
-  getTrending: (
-    mediaType: TrendingGetTrendingParams["media_type"],
-    timeWindow: TrendingGetTrendingParams["time_window"]
-  ) => Promise<TrendingGetTrendingResponse>;
+  getTrending: (mediaType: TrendingGetTrendingParams["media_type"], timeWindow: TrendingGetTrendingParams["time_window"]) => Promise<TrendingGetTrendingResponse>;
 }
 
 interface IPeople {
-  getDetails: (
-    personId: number,
-    params?: PeopleGetDetailsParams
-  ) => Promise<PeopleGetDetailsResponse>;
-  getChanges: (
-    personId: number,
-    params?: PeopleGetChangesParams
-  ) => Promise<PeopleGetChangesResponse>;
-  getMovieCredits: (
-    personId: number,
-    params?: PeopleGetMovieCreditsParams
-  ) => Promise<PeopleGetMovieCreditsResponse>;
-  getTVCredits: (
-    personId: number,
-    params?: PeopleGetTvCreditsParams
-  ) => Promise<PeopleGetTvCreditsResponse>;
-  getCombinedCredits: (
-    personId: number,
-    params?: PeopleGetCombinedCreditsParams
-  ) => Promise<PeopleGetCombinedCreditsResponse>;
+  getDetails: <T extends PeopleAppendToResponse[]>(personId: number, params?: PeopleGetDetailsParams<T>) => Promise<PeopleGetDetailsResponse>;
+  getChanges: (personId: number, params?: PeopleGetChangesParams) => Promise<PeopleGetChangesResponse>;
+  getMovieCredits: (personId: number, params?: PeopleGetMovieCreditsParams) => Promise<PeopleGetMovieCreditsResponse>;
+  getTVCredits: (personId: number, params?: PeopleGetTvCreditsParams) => Promise<PeopleGetTvCreditsResponse>;
+  getCombinedCredits: (personId: number, params?: PeopleGetCombinedCreditsParams) => Promise<PeopleGetCombinedCreditsResponse>;
   getExternalIds: (personId: number) => Promise<PeopleGetExternalIdsResponse>;
   getImages: (personId: number) => Promise<PeopleGetImagesResponse>;
-  getTaggedImages: (
-    personId: number,
-    params?: PeopleGetTaggedImagesParams
-  ) => Promise<PeopleGetTaggedImagesResponse>;
-  getTranslations: (
-    personId: number,
-    params?: PeopleGetTranslationsParams
-  ) => Promise<PeopleGetTranslationsResponse>;
-  getLatest: (
-    params?: PeopleGetLatestParams
-  ) => Promise<PeopleGetLatestResponse>;
-  getPopular: (
-    params?: PeopleGetPopularParams
-  ) => Promise<PeopleGetPopularResponse>;
+  getTaggedImages: (personId: number, params?: PeopleGetTaggedImagesParams) => Promise<PeopleGetTaggedImagesResponse>;
+  getTranslations: (personId: number, params?: PeopleGetTranslationsParams) => Promise<PeopleGetTranslationsResponse>;
+  getLatest: (params?: PeopleGetLatestParams) => Promise<PeopleGetLatestResponse>;
+  getPopular: (params?: PeopleGetPopularParams) => Promise<PeopleGetPopularResponse>;
 }
 
 interface IReviews {
@@ -670,313 +487,106 @@ interface IReviews {
 }
 
 interface ISearch {
-  searchCompanies: (
-    params: SearchCompaniesParams
-  ) => Promise<SearchCompaniesResponse>;
-  searchCollections: (
-    params: SearchCollectionsParams
-  ) => Promise<SearchCollectionsResponse>;
-  searchKeywords: (
-    params: SearchKeywordsParams
-  ) => Promise<SearchKeywordsResponse>;
+  searchCompanies: (params: SearchCompaniesParams) => Promise<SearchCompaniesResponse>;
+  searchCollections: (params: SearchCollectionsParams) => Promise<SearchCollectionsResponse>;
+  searchKeywords: (params: SearchKeywordsParams) => Promise<SearchKeywordsResponse>;
   searchMovies: (params: SearchMoviesParams) => Promise<SearchMoviesResponse>;
-  searchMulti: (
-    params: SearchMultiSearchParams
-  ) => Promise<SearchMultiSearchResponse>;
+  searchMulti: (params: SearchMultiSearchParams) => Promise<SearchMultiSearchResponse>;
   searchPeople: (params: SearchPeopleParams) => Promise<SearchPeopleResponse>;
   searchTV: (params: SearchTVShowsParams) => Promise<SearchTVShowsResponse>;
 }
 
 interface ITV {
-  getDetails: (
-    tvId: number,
-    params?: TVGetDetailsParams
-  ) => Promise<TVGetDetailsResponse>;
-  getAccountStates: (
-    tvId: number,
-    params?: TVGetAccountStatesParams
-  ) => Promise<TVGetAccountStatesResponse>;
-  getAggregateCredits: (
-    tvId: number,
-    params?: TVGetAggregateCreditsParams
-  ) => Promise<TVGetAggregateCreditsResponse>;
-  getAlternativeTitles: (
-    tvId: number,
-    params?: TVGetAlternativeTitlesParams
-  ) => Promise<TVGetAlternativeTitlesResponse>;
-  getChanges: (
-    tvId: number,
-    params?: TVGetChangesParams
-  ) => Promise<TVGetChangesResponse>;
-  getContentRatings: (
-    tvId: number,
-    params?: TVGetContentRatingsParams
-  ) => Promise<TVGetContentRatingsResponse>;
-  getCredits: (
-    tvId: number,
-    params?: TVGetCreditsParams
-  ) => Promise<TVGetCreditsResponse>;
-  getEpisodeGroups: (
-    tvId: number,
-    params?: TVGetEpisodeGroupsParams
-  ) => Promise<TVGetEpisodeGroupsResponse>;
-  getExternalIds: (
-    tvId: number,
-    params?: TVGetExternalIdsParams
-  ) => Promise<TVGetExternalIdsResponse>;
-  getImages: (
-    tvId: number,
-    params?: TVGetImagesParams
-  ) => Promise<TVGetImagesResponse>;
+  getDetails: <T extends TVAppendToResponse[]>(tvId: number, params?: TVGetDetailsParams<T>) => Promise<TVGetDetailsResponse>;
+  getAccountStates: (tvId: number, params?: TVGetAccountStatesParams) => Promise<TVGetAccountStatesResponse>;
+  getAggregateCredits: (tvId: number, params?: TVGetAggregateCreditsParams) => Promise<TVGetAggregateCreditsResponse>;
+  getAlternativeTitles: (tvId: number, params?: TVGetAlternativeTitlesParams) => Promise<TVGetAlternativeTitlesResponse>;
+  getChanges: (tvId: number, params?: TVGetChangesParams) => Promise<TVGetChangesResponse>;
+  getContentRatings: (tvId: number, params?: TVGetContentRatingsParams) => Promise<TVGetContentRatingsResponse>;
+  getCredits: (tvId: number, params?: TVGetCreditsParams) => Promise<TVGetCreditsResponse>;
+  getEpisodeGroups: (tvId: number, params?: TVGetEpisodeGroupsParams) => Promise<TVGetEpisodeGroupsResponse>;
+  getExternalIds: (tvId: number, params?: TVGetExternalIdsParams) => Promise<TVGetExternalIdsResponse>;
+  getImages: (tvId: number, params?: TVGetImagesParams) => Promise<TVGetImagesResponse>;
   getKeywords: (tvId: number) => Promise<TVGetKeywordsResponse>;
-  getRecommendations: (
-    tvId: number,
-    params?: TVGetRecommendationsParams
-  ) => Promise<TVGetRecommendationsResponse>;
-  getReviews: (
-    tvId: number,
-    params?: TVGetReviewsParams
-  ) => Promise<TVGetReviewsResponse>;
-  getScreenedTheatrically: (
-    tvId: number,
-    params?: TVGetScreenedTheatricallyParams
-  ) => Promise<TVGetScreenedTheatricallyResponse>;
-  getSimilarTVShows: (
-    tvId: number,
-    params?: TVGetSimilarTVShowsParams
-  ) => Promise<TVGetSimilarTVShowsResponse>;
+  getRecommendations: (tvId: number, params?: TVGetRecommendationsParams) => Promise<TVGetRecommendationsResponse>;
+  getReviews: (tvId: number, params?: TVGetReviewsParams) => Promise<TVGetReviewsResponse>;
+  getScreenedTheatrically: (tvId: number, params?: TVGetScreenedTheatricallyParams) => Promise<TVGetScreenedTheatricallyResponse>;
+  getSimilarTVShows: (tvId: number, params?: TVGetSimilarTVShowsParams) => Promise<TVGetSimilarTVShowsResponse>;
   getTranslations: (tvId: number) => Promise<TVGetTranslationsResponse>;
-  getVideos: (
-    tvId: number,
-    params?: TVGetVideosParams
-  ) => Promise<TVGetVideosResponse>;
+  getVideos: (tvId: number, params?: TVGetVideosParams) => Promise<TVGetVideosResponse>;
   getWatchProviders: (tvId: number) => Promise<TVGetWatchProvidersResponse>;
-  rateTVShow: (
-    tvId: number,
-    body: TVRateTVShowsBody,
-    params?: TVRateTVShowsParams
-  ) => Promise<TVRateTVShowsResponse>;
-  deleteRating: (
-    tvId: number,
-    params?: TVDeleteRatingParams
-  ) => Promise<TVEpisodesDeleteRatingResponse>;
+  rateTVShow: (tvId: number, body: TVRateTVShowsBody, params?: TVRateTVShowsParams) => Promise<TVRateTVShowsResponse>;
+  deleteRating: (tvId: number, params?: TVDeleteRatingParams) => Promise<TVEpisodesDeleteRatingResponse>;
   getLatest: (params?: TVGetLatestParams) => Promise<TVGetLatestResponse>;
-  getTVAiringToday: (
-    params?: TVGetTVAiringTodayParams
-  ) => Promise<TVGetTVAiringTodayResponse>;
-  getTVOnTheAir: (
-    params?: TVGetTVOnTheAirParams
-  ) => Promise<TVGetTVOnTheAirResponse>;
+  getTVAiringToday: (params?: TVGetTVAiringTodayParams) => Promise<TVGetTVAiringTodayResponse>;
+  getTVOnTheAir: (params?: TVGetTVOnTheAirParams) => Promise<TVGetTVOnTheAirResponse>;
   getPopular: (params?: TVGetPopularParams) => Promise<TVGetPopularResponse>;
   getTopRated: (params?: TVGetTopRatedParams) => Promise<TVGetTopRatedResponse>;
 }
 
 interface ITVSeasons {
-  getDetails: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetDetailsParams
-  ) => Promise<TVSeasonsGetDetailsResponse>;
-  getAccountStates: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetAccountStatesParams
-  ) => Promise<TVSeasonsGetAccountStatesResponse>;
-  getAggregateCredits: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetAggregateCreditsParams
-  ) => Promise<TVSeasonsGetAggregateCreditsResponse>;
-  getChanges: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetChangesParams
-  ) => Promise<TVSeasonsGetChangesResponse>;
-  getCredits: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetCreditsParams
-  ) => Promise<TVSeasonsGetCreditsResponse>;
-  getExternalIds: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetExternalIDsParams
-  ) => Promise<TVSeasonsGetExternalIDsResponse>;
-  getImages: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetImagesParams
-  ) => Promise<TVSeasonsGetImagesResponse>;
-  getTranslations: (
-    tvId: number,
-    seasonNumber: number
-  ) => Promise<TVSeasonsGetTranslationsResponse>;
-  getVideos: (
-    tvId: number,
-    seasonNumber: number,
-    params?: TVSeasonsGetVideosParams
-  ) => Promise<TVSeasonsGetVideosResponse>;
+  getDetails: <T extends TVSeasonsAppendToResponse[]>(tvId: number, seasonNumber: number, params?: TVSeasonsGetDetailsParams<T>) => Promise<TVSeasonsGetDetailsResponse>;
+  getAccountStates: (tvId: number, seasonNumber: number, params?: TVSeasonsGetAccountStatesParams) => Promise<TVSeasonsGetAccountStatesResponse>;
+  getAggregateCredits: (tvId: number, seasonNumber: number, params?: TVSeasonsGetAggregateCreditsParams) => Promise<TVSeasonsGetAggregateCreditsResponse>;
+  getChanges: (tvId: number, seasonNumber: number, params?: TVSeasonsGetChangesParams) => Promise<TVSeasonsGetChangesResponse>;
+  getCredits: (tvId: number, seasonNumber: number, params?: TVSeasonsGetCreditsParams) => Promise<TVSeasonsGetCreditsResponse>;
+  getExternalIds: (tvId: number, seasonNumber: number, params?: TVSeasonsGetExternalIDsParams) => Promise<TVSeasonsGetExternalIDsResponse>;
+  getImages: (tvId: number, seasonNumber: number, params?: TVSeasonsGetImagesParams) => Promise<TVSeasonsGetImagesResponse>;
+  getTranslations: (tvId: number, seasonNumber: number) => Promise<TVSeasonsGetTranslationsResponse>;
+  getVideos: (tvId: number, seasonNumber: number, params?: TVSeasonsGetVideosParams) => Promise<TVSeasonsGetVideosResponse>;
 }
 
 interface ITVEpisodes {
-  getDetails: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesGetDetailsParams
-  ) => Promise<TVEpisodesGetDetailsResponse>;
-  getAccountStates: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesGetAccountStatesParams
-  ) => Promise<TVEpisodesGetAccountStatesResponse>;
-  getChanges: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesGetChangesParams
-  ) => Promise<TVEpisodesGetChangesResponse>;
-  getCredits: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesGetCreditsParams
-  ) => Promise<TVEpisodesGetCreditsResponse>;
-  getExternalIds: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number
-  ) => Promise<TVEpisodesGetExternalIDsResponse>;
-  getImages: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number
-  ) => Promise<TVEpisodesGetImagesResponse>;
-  getTranslations: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number
-  ) => Promise<TVEpisodesGetTranslationsResponse>;
-  rateTVEpisode: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    body: TVEpisodesRateTVEpisodeBody,
-    params?: TVEpisodesRateTVEpisodeParams
-  ) => Promise<TVEpisodesRateTVEpisodeResponse>;
-  deleteRating: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesDeleteRatingParams
-  ) => Promise<TVEpisodesDeleteRatingResponse>;
-  getVideos: (
-    tvId: number,
-    seasonNumber: number,
-    episodeNumber: number,
-    params?: TVEpisodesGetVideosParams
-  ) => Promise<TVEpisodesGetVideosResponse>;
+  getDetails: <T extends TVEpisodesAppendToResponse[]>(tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetDetailsParams<T>) => Promise<TVEpisodesGetDetailsResponse>;
+  getAccountStates: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetAccountStatesParams) => Promise<TVEpisodesGetAccountStatesResponse>;
+  getChanges: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetChangesParams) => Promise<TVEpisodesGetChangesResponse>;
+  getCredits: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetCreditsParams) => Promise<TVEpisodesGetCreditsResponse>;
+  getExternalIds: (tvId: number, seasonNumber: number, episodeNumber: number) => Promise<TVEpisodesGetExternalIDsResponse>;
+  getImages: (tvId: number, seasonNumber: number, episodeNumber: number) => Promise<TVEpisodesGetImagesResponse>;
+  getTranslations: (tvId: number, seasonNumber: number, episodeNumber: number) => Promise<TVEpisodesGetTranslationsResponse>;
+  rateTVEpisode: (tvId: number, seasonNumber: number, episodeNumber: number, body: TVEpisodesRateTVEpisodeBody, params?: TVEpisodesRateTVEpisodeParams) => Promise<TVEpisodesRateTVEpisodeResponse>;
+  deleteRating: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesDeleteRatingParams) => Promise<TVEpisodesDeleteRatingResponse>;
+  getVideos: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetVideosParams) => Promise<TVEpisodesGetVideosResponse>;
 }
 
 interface ITVEpisodeGroups {
-  getDetails: (
-    id?: string,
-    params?: TVEpisodeGroupsGetDetailsParams
-  ) => Promise<TVEpisodeGroupsGetDetailsResponse>;
+  getDetails: (id?: string, params?: TVEpisodeGroupsGetDetailsParams) => Promise<TVEpisodeGroupsGetDetailsResponse>;
 }
 
 interface IWatchProviders {
-  getAvailableRegions: (
-    params?: WatchProvidersGetAvailableRegionsParams
-  ) => Promise<WatchProvidersGetAvailableRegionsResponse>;
-  getMovieProviders: (
-    params?: WatchProvidersGetMovieProvidersParams
-  ) => Promise<WatchProvidersGetMovieProvidersResponse>;
-  getTVProviders: (
-    params?: WatchProvidersGetTVProvidersParams
-  ) => Promise<WatchProvidersGetTVProvidersResponse>;
+  getAvailableRegions: (params?: WatchProvidersGetAvailableRegionsParams) => Promise<WatchProvidersGetAvailableRegionsResponse>;
+  getMovieProviders: (params?: WatchProvidersGetMovieProvidersParams) => Promise<WatchProvidersGetMovieProvidersResponse>;
+  getTVProviders: (params?: WatchProvidersGetTVProvidersParams) => Promise<WatchProvidersGetTVProvidersResponse>;
 }
 
 export interface V4IAccount {
-  getLists: (
-    accountId: string,
-    params?: V4AccountGetListsParams
-  ) => Promise<V4AccountGetListsResponse>;
-  getFavoriteMovies: (
-    accountId: string,
-    params?: V4AccountGetFavoriteMoviesParams
-  ) => Promise<V4AccountGetFavoriteMoviesResponse>;
-  getFavoriteTVShows: (
-    accountId: string,
-    params?: V4AccountGetFavoriteTVShowsParams
-  ) => Promise<V4AccountGetFavoriteTVShowsResponse>;
-  getMovieRecommendations: (
-    accountId: string,
-    params?: V4AccountGetMovieRecommendationsParams
-  ) => Promise<V4AccountGetMovieRecommendationsResponse>;
-  getTVShowRecommendations: (
-    accountId: string,
-    params?: V4AccountGetTVShowRecommendationsParams
-  ) => Promise<V4AccountGetTVShowRecommendationsResponse>;
-  getMovieWatchlist: (
-    accountId: string,
-    params?: V4AccountGetMovieWatchlistParams
-  ) => Promise<V4AccountGetMovieWatchlistResponse>;
-  getTVShowWatchlist: (
-    accountId: string,
-    params?: V4AccountGetTVShowWatchlistParams
-  ) => Promise<V4AccountGetTVShowWatchlistResponse>;
-  getRatedMovies: (
-    accountId: string,
-    params?: V4AccountGetRatedMoviesParams
-  ) => Promise<V4AccountGetRatedMoviesResponse>;
-  getRatedTVShows: (
-    accountId: string,
-    params?: V4AccountGetRatedTVShowsParams
-  ) => Promise<V4AccountGetRatedTVShowsResponse>;
+  getLists: (accountId: string, params?: V4AccountGetListsParams) => Promise<V4AccountGetListsResponse>;
+  getFavoriteMovies: (accountId: string, params?: V4AccountGetFavoriteMoviesParams) => Promise<V4AccountGetFavoriteMoviesResponse>;
+  getFavoriteTVShows: (accountId: string, params?: V4AccountGetFavoriteTVShowsParams) => Promise<V4AccountGetFavoriteTVShowsResponse>;
+  getMovieRecommendations: (accountId: string, params?: V4AccountGetMovieRecommendationsParams) => Promise<V4AccountGetMovieRecommendationsResponse>;
+  getTVShowRecommendations: (accountId: string, params?: V4AccountGetTVShowRecommendationsParams) => Promise<V4AccountGetTVShowRecommendationsResponse>;
+  getMovieWatchlist: (accountId: string, params?: V4AccountGetMovieWatchlistParams) => Promise<V4AccountGetMovieWatchlistResponse>;
+  getTVShowWatchlist: (accountId: string, params?: V4AccountGetTVShowWatchlistParams) => Promise<V4AccountGetTVShowWatchlistResponse>;
+  getRatedMovies: (accountId: string, params?: V4AccountGetRatedMoviesParams) => Promise<V4AccountGetRatedMoviesResponse>;
+  getRatedTVShows: (accountId: string, params?: V4AccountGetRatedTVShowsParams) => Promise<V4AccountGetRatedTVShowsResponse>;
 }
 
 export interface V4IAuth {
-  createRequestToken: (
-    body?: V4AuthCreateRequestTokenBody
-  ) => Promise<V4AuthCreateRequestTokenResponse>;
-  createAccessToken: (
-    body: V4AuthCreateAccessTokenBody
-  ) => Promise<V4AuthCreateAccessTokenResponse>;
-  deleteAccessToken: (
-    body: V4AuthDeleteAccessTokenBody
-  ) => Promise<V4AuthDeleteAccessTokenResponse>;
+  createRequestToken: (body?: V4AuthCreateRequestTokenBody) => Promise<V4AuthCreateRequestTokenResponse>;
+  createAccessToken: (body: V4AuthCreateAccessTokenBody) => Promise<V4AuthCreateAccessTokenResponse>;
+  deleteAccessToken: (body: V4AuthDeleteAccessTokenBody) => Promise<V4AuthDeleteAccessTokenResponse>;
 }
 
 export interface V4IList {
-  getList: (
-    params?: V4ListGetListParams,
-    listId?: string
-  ) => Promise<V4ListGetListResponse>;
+  getList: (params?: V4ListGetListParams, listId?: string) => Promise<V4ListGetListResponse>;
   createList: (body: V4ListCreateListBody) => Promise<V4ListCreateListResponse>;
-  updateList: (
-    body: V4ListUpdateListBody,
-    listId?: string
-  ) => Promise<V4ListUpdateListResponse>;
+  updateList: (body: V4ListUpdateListBody, listId?: string) => Promise<V4ListUpdateListResponse>;
   clearList: (listId?: string) => Promise<V4ListClearListResponse>;
   deleteList: (listId?: string) => Promise<V4ListDeleteListResponse>;
-  addItems: (
-    body: V4ListAddItemsBody,
-    listId?: string
-  ) => Promise<V4ListAddItemsResponse>;
-  updateItems: (
-    body: V4ListUpdateItemsBody,
-    listId?: string
-  ) => Promise<V4ListUpdateItemsResponse>;
-  removeItems: (
-    body: V4ListRemoveItemsBody,
-    listId?: string
-  ) => Promise<V4ListRemoveItemsResponse>;
-  checkItemStatus: (
-    params: V4ListCheckItemStatusParams,
-    listId?: string
-  ) => Promise<V4ListCheckItemStatusResponse>;
+  addItems: (body: V4ListAddItemsBody, listId?: string) => Promise<V4ListAddItemsResponse>;
+  updateItems: (body: V4ListUpdateItemsBody, listId?: string) => Promise<V4ListUpdateItemsResponse>;
+  removeItems: (body: V4ListRemoveItemsBody, listId?: string) => Promise<V4ListRemoveItemsResponse>;
+  checkItemStatus: (params: V4ListCheckItemStatusParams, listId?: string) => Promise<V4ListCheckItemStatusResponse>;
 }
 
 export interface ITMDBAPI {
@@ -1016,21 +626,9 @@ export interface ITMDBAPI {
 
 export interface Http {
   get<TResponse>(url: string, accessToken?: string): Promise<TResponse>;
-  post<TResponse, TBody = undefined>(
-    url: string,
-    body?: TBody,
-    accessToken?: string
-  ): Promise<TResponse>;
-  put<TResponse, TBody>(
-    url: string,
-    body: TBody,
-    accessToken?: string
-  ): Promise<TResponse>;
-  delete<TResponse, TBody = undefined>(
-    url: string,
-    body?: TBody,
-    accessToken?: string
-  ): Promise<TResponse>;
+  post<TResponse, TBody = undefined>(url: string, body?: TBody, accessToken?: string): Promise<TResponse>;
+  put<TResponse, TBody>(url: string, body: TBody, accessToken?: string): Promise<TResponse>;
+  delete<TResponse, TBody = undefined>(url: string, body?: TBody, accessToken?: string): Promise<TResponse>;
 }
 
 const createV3Methods = (client: Http, apiKey: string, v3Url: string) => {
@@ -1071,7 +669,7 @@ const createV4Methods = (client: Http, v4Url: string, accessToken?: string) => {
   };
 };
 
-export default class TMDBAPI implements ITMDBAPI{
+export default class TMDBAPI implements ITMDBAPI {
   private v3Url = "https://api.themoviedb.org/3/";
   private v4Url = "https://api.themoviedb.org/4/";
 
@@ -1099,7 +697,7 @@ export default class TMDBAPI implements ITMDBAPI{
     this.client = client;
 
     this.v3 = createV3Methods(this.client, this.apiKey, this.v3Url);
-    this.v4 = createV4Methods(this.client, this.v4Url, this.accessToken)
+    this.v4 = createV4Methods(this.client, this.v4Url, this.accessToken);
   }
 }
 
