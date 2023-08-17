@@ -1,3 +1,5 @@
+import { PeopleAppendToResponse } from "../../append-to-response";
+
 export interface PeopleGetDetailsResponse {
   birthday: string;
   known_for_department: string;
@@ -15,7 +17,7 @@ export interface PeopleGetDetailsResponse {
   homepage: null;
 }
 
-export interface PeopleGetDetailsParams {
+export interface PeopleGetDetailsParams<T extends PeopleAppendToResponse[]> {
   language?: string;
-  append_to_response?: string;
+  append_to_response?: T;
 }

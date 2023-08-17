@@ -22,11 +22,7 @@ const client: Http = {
             });
             res.on("end", () => {
               if (!res.complete) {
-                reject(
-                  new Error(
-                    "The connection was terminated while the message was still being sent"
-                  )
-                );
+                reject(new Error("The connection was terminated while the message was still being sent"));
               } else if (res.statusCode && res.statusCode >= 400) {
                 const error = JSON.parse(data) as TMDBApiError;
                 reject(new Error(error.status_message));
@@ -34,7 +30,7 @@ const client: Http = {
                 resolve(JSON.parse(data));
               }
             });
-          }
+          },
         )
         .on("error", (err) => {
           reject(err);
@@ -59,11 +55,7 @@ const client: Http = {
           });
           res.on("end", () => {
             if (!res.complete) {
-              reject(
-                new Error(
-                  "The connection was terminated while the message was still being sent"
-                )
-              );
+              reject(new Error("The connection was terminated while the message was still being sent"));
             } else if (res.statusCode && res.statusCode >= 400) {
               const error = JSON.parse(data) as TMDBApiError;
               reject(new Error(error.status_message));
@@ -97,11 +89,7 @@ const client: Http = {
           });
           res.on("end", () => {
             if (!res.complete) {
-              reject(
-                new Error(
-                  "The connection was terminated while the message was still being sent"
-                )
-              );
+              reject(new Error("The connection was terminated while the message was still being sent"));
             } else if (res.statusCode && res.statusCode >= 400) {
               const error = JSON.parse(data) as TMDBApiError;
               reject(new Error(error.status_message));
@@ -135,11 +123,7 @@ const client: Http = {
           });
           res.on("end", () => {
             if (!res.complete) {
-              reject(
-                new Error(
-                  "The connection was terminated while the message was still being sent"
-                )
-              );
+              reject(new Error("The connection was terminated while the message was still being sent"));
             } else if (res.statusCode && res.statusCode >= 400) {
               const error = JSON.parse(data) as TMDBApiError;
               reject(new Error(error.status_message));

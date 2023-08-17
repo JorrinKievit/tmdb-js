@@ -24,155 +24,60 @@ const getAccountUrlWithId = (url: string, account_id?: number): string => {
   return formattedUrl;
 };
 
-export const createV3AccountMethods = (
-  client: Http,
-  apiKey: string,
-  apiUrl: string
-): ITMDBAPI["v3"]["account"] => {
+export const createV3AccountMethods = (client: Http, apiKey: string, apiUrl: string): ITMDBAPI["v3"]["account"] => {
   return {
     getDetails: async (params) => {
-      const res = await client.get<AccountGetDetailsResponse>(
-        buildV3Url(apiKey, `${apiUrl}account`, params)
-      );
+      const res = await client.get<AccountGetDetailsResponse>(buildV3Url(apiKey, `${apiUrl}account`, params));
       return res;
     },
     getCreatedLists: async (params, accountId) => {
-      const res = await client.get<AccountGetCreatedListsResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(`${apiUrl}account/{account_id}/lists`, accountId),
-          params
-        )
-      );
+      const res = await client.get<AccountGetCreatedListsResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/lists`, accountId), params));
 
       return res;
     },
     getFavoriteMovies: async (params, accountId) => {
-      const res = await client.get<AccountGetFavoriteMoviesResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/favorite/movies`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetFavoriteMoviesResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/favorite/movies`, accountId), params));
 
       return res;
     },
     getFavoriteTVShows: async (params, accountId) => {
-      const res = await client.get<AccountGetFavoriteTVShowsResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/favorite/tv`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetFavoriteTVShowsResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/favorite/tv`, accountId), params));
 
       return res;
     },
     markAsFavorite: async (params, body, accountId) => {
-      const res = await client.post<AccountMarkAsFavoriteResponse, typeof body>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/favorite`,
-            accountId
-          ),
-          params
-        ),
-        body
-      );
+      const res = await client.post<AccountMarkAsFavoriteResponse, typeof body>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/favorite`, accountId), params), body);
 
       return res;
     },
     getRatedMovies: async (params, accountId) => {
-      const res = await client.get<AccountGetRatedMoviesResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/rated/movies`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetRatedMoviesResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/rated/movies`, accountId), params));
 
       return res;
     },
     getRatedTVShows: async (params, accountId) => {
-      const res = await client.get<AccountGetRatedTVShowsResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/rated/tv`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetRatedTVShowsResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/rated/tv`, accountId), params));
 
       return res;
     },
     getRatedTVEpisodes: async (params, accountId) => {
-      const res = await client.get<AccountGetRatedTVEpisodesResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/rated/tv/episodes`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetRatedTVEpisodesResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/rated/tv/episodes`, accountId), params));
 
       return res;
     },
     getMovieWatchlist: async (params, accountId) => {
-      const res = await client.get<AccountGetMovieWatchlistResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/watchlist/movies`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetMovieWatchlistResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/watchlist/movies`, accountId), params));
 
       return res;
     },
 
     getTVShowWatchlist: async (params, accountId) => {
-      const res = await client.get<AccountGetTVShowWatchlistResponse>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/watchlist/tv`,
-            accountId
-          ),
-          params
-        )
-      );
+      const res = await client.get<AccountGetTVShowWatchlistResponse>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/watchlist/tv`, accountId), params));
 
       return res;
     },
     addToWatchlist: async (params, body, accountId) => {
-      const res = await client.post<AccountAddToWatchlistResponse, typeof body>(
-        buildV3Url(
-          apiKey,
-          getAccountUrlWithId(
-            `${apiUrl}account/{account_id}/watchlist`,
-            accountId
-          ),
-          params
-        ),
-        body
-      );
+      const res = await client.post<AccountAddToWatchlistResponse, typeof body>(buildV3Url(apiKey, getAccountUrlWithId(`${apiUrl}account/{account_id}/watchlist`, accountId), params), body);
 
       return res;
     },

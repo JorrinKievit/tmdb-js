@@ -1,4 +1,6 @@
-export interface MoviesGetDetailsResponse {
+import { AppendToResponseType, MoviesAppendToResponse } from "../../append-to-response";
+
+export type MoviesGetDetailsResponse = {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: null;
@@ -24,7 +26,7 @@ export interface MoviesGetDetailsResponse {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
 
 export interface MoviesGetDetailsGenre {
   id: number;
@@ -48,7 +50,9 @@ export interface MoviesGetDetailsSpokenLanguage {
   name: string;
 }
 
-export interface MoviesGetDetailsParams {
+export interface MoviesGetDetailsParams<T extends MoviesAppendToResponse[]> {
   language?: string;
-  append_to_response?: string;
+  append_to_response?: T;
 }
+
+export type GetDetailsResponse<AppendToResponse extends MoviesAppendToResponse[] | undefined> = MoviesGetDetailsResponse & AppendToResponseType<AppendToResponse>;
