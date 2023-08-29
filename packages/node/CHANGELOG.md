@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.1.2
+
+### Patch Changes
+
+- ce01160: #6 Added type-safety to all getDetails endpoints
+
 ## 1.1.0
 
 ### Minor Changes

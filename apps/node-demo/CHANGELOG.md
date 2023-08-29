@@ -1,5 +1,12 @@
 # node-demo
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [ce01160]
+  - tmdb-js-node@1.1.2
+
 ## 1.0.3
 
 ### Patch Changes
