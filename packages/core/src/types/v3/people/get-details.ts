@@ -1,6 +1,6 @@
-import { PeopleAppendToResponse } from "../../append-to-response";
+import { AppendToResponseType, PeopleAppendToResponse } from "../../append-to-response";
 
-export interface PeopleGetDetailsResponse {
+export interface PeopleGetDetailsBaseResponse {
   birthday: string;
   known_for_department: string;
   deathday: null;
@@ -21,3 +21,5 @@ export interface PeopleGetDetailsParams<T extends PeopleAppendToResponse[]> {
   language?: string;
   append_to_response?: T;
 }
+
+export type PeopleGetDetailsResponse<AppendToResponse extends PeopleAppendToResponse[] | undefined> = PeopleGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;

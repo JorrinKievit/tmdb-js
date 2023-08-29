@@ -1,6 +1,6 @@
 import { AppendToResponseType, MoviesAppendToResponse } from "../../append-to-response";
 
-export type MoviesGetDetailsResponse = {
+export type MoviesGetDetailsBaseResponse = {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: null;
@@ -55,4 +55,4 @@ export interface MoviesGetDetailsParams<T extends MoviesAppendToResponse[]> {
   append_to_response?: T;
 }
 
-export type GetDetailsResponse<AppendToResponse extends MoviesAppendToResponse[] | undefined> = MoviesGetDetailsResponse & AppendToResponseType<AppendToResponse>;
+export type MoviesGetDetailsResponse<AppendToResponse extends MoviesAppendToResponse[] | undefined> = MoviesGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;

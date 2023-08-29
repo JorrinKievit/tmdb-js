@@ -1,6 +1,6 @@
-import { TVSeasonsAppendToResponse } from "../../append-to-response";
+import { AppendToResponseType, TVSeasonsAppendToResponse } from "../../append-to-response";
 
-export interface TVSeasonsGetDetailsResponse {
+export interface TVSeasonsGetDetailsBaseResponse {
   _id: string;
   air_date: string;
   episodes: TVSeasonsGetDetailsEpisode[];
@@ -46,3 +46,5 @@ export interface TVSeasonsGetDetailsParams<T extends TVSeasonsAppendToResponse[]
   language?: string;
   append_to_response?: T;
 }
+
+export type TVSeasonsGetDetailsResponse<AppendToResponse extends TVSeasonsAppendToResponse[] | undefined> = TVSeasonsGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;
