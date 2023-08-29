@@ -1,6 +1,6 @@
 {
   "name": "tmdb-js-web",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "tmdb-js-web is a fully-typed TypeScript wrapper for the TMDB API. It is designed for use in browser-based JavaScript applications and supports both v3 and v4 of the TMDB API.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

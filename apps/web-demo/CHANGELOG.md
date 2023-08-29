@@ -1,5 +1,12 @@
 # web-demo
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [ce01160]
+  - tmdb-js-web@1.1.2
+
 ## 0.0.4
 
 ### Patch Changes
