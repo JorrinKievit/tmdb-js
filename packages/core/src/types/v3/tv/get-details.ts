@@ -1,6 +1,6 @@
-import { TVAppendToResponse } from "../../append-to-response";
+import { AppendToResponseType, TVAppendToResponse } from "../../append-to-response";
 
-export interface TVGetDetailsResponse {
+export interface TVGetDetailsBaseResponse {
   backdrop_path: string;
   created_by: TVGetDetailsCreatedBy[];
   episode_run_time: number[];
@@ -92,3 +92,5 @@ export interface TVGetDetailsParams<T extends TVAppendToResponse[]> {
   language?: string;
   append_to_response?: T;
 }
+
+export type TVGetDetailsResponse<AppendToResponse extends TVAppendToResponse[] | undefined> = TVGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;

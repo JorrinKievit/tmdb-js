@@ -265,7 +265,6 @@ import {
   WatchProvidersGetTVProvidersParams,
   WatchProvidersGetTVProvidersResponse,
   TrendingGetTrendingParams,
-  GetDetailsResponse,
 } from "./types/v3";
 import {
   V4AccountGetListsParams,
@@ -433,7 +432,7 @@ interface ILists {
 }
 
 interface IMovies {
-  getDetails: <T extends MoviesAppendToResponse[]>(movieId: number, params?: MoviesGetDetailsParams<T>) => Promise<GetDetailsResponse<T>>;
+  getDetails: <T extends MoviesAppendToResponse[]>(movieId: number, params?: MoviesGetDetailsParams<T>) => Promise<MoviesGetDetailsResponse<T>>;
   getAccountStates: (movieId: number, params: MoviesGetAccountStatesParams) => Promise<MoviesGetAccountStatesResponse>;
   getAlternativeTitles: (movieId: number, params?: MoviesGetAlternativeTitlesParams) => Promise<MoviesGetAlternativeTitlesResponse>;
   getChanges: (movieId: number, params?: MoviesGetChangesParams) => Promise<MoviesGetChangesResponse>;
@@ -469,7 +468,7 @@ interface ITrending {
 }
 
 interface IPeople {
-  getDetails: <T extends PeopleAppendToResponse[]>(personId: number, params?: PeopleGetDetailsParams<T>) => Promise<PeopleGetDetailsResponse>;
+  getDetails: <T extends PeopleAppendToResponse[]>(personId: number, params?: PeopleGetDetailsParams<T>) => Promise<PeopleGetDetailsResponse<T>>;
   getChanges: (personId: number, params?: PeopleGetChangesParams) => Promise<PeopleGetChangesResponse>;
   getMovieCredits: (personId: number, params?: PeopleGetMovieCreditsParams) => Promise<PeopleGetMovieCreditsResponse>;
   getTVCredits: (personId: number, params?: PeopleGetTvCreditsParams) => Promise<PeopleGetTvCreditsResponse>;
@@ -497,7 +496,7 @@ interface ISearch {
 }
 
 interface ITV {
-  getDetails: <T extends TVAppendToResponse[]>(tvId: number, params?: TVGetDetailsParams<T>) => Promise<TVGetDetailsResponse>;
+  getDetails: <T extends TVAppendToResponse[]>(tvId: number, params?: TVGetDetailsParams<T>) => Promise<TVGetDetailsResponse<T>>;
   getAccountStates: (tvId: number, params?: TVGetAccountStatesParams) => Promise<TVGetAccountStatesResponse>;
   getAggregateCredits: (tvId: number, params?: TVGetAggregateCreditsParams) => Promise<TVGetAggregateCreditsResponse>;
   getAlternativeTitles: (tvId: number, params?: TVGetAlternativeTitlesParams) => Promise<TVGetAlternativeTitlesResponse>;
@@ -525,7 +524,7 @@ interface ITV {
 }
 
 interface ITVSeasons {
-  getDetails: <T extends TVSeasonsAppendToResponse[]>(tvId: number, seasonNumber: number, params?: TVSeasonsGetDetailsParams<T>) => Promise<TVSeasonsGetDetailsResponse>;
+  getDetails: <T extends TVSeasonsAppendToResponse[]>(tvId: number, seasonNumber: number, params?: TVSeasonsGetDetailsParams<T>) => Promise<TVSeasonsGetDetailsResponse<T>>;
   getAccountStates: (tvId: number, seasonNumber: number, params?: TVSeasonsGetAccountStatesParams) => Promise<TVSeasonsGetAccountStatesResponse>;
   getAggregateCredits: (tvId: number, seasonNumber: number, params?: TVSeasonsGetAggregateCreditsParams) => Promise<TVSeasonsGetAggregateCreditsResponse>;
   getChanges: (tvId: number, seasonNumber: number, params?: TVSeasonsGetChangesParams) => Promise<TVSeasonsGetChangesResponse>;
@@ -537,7 +536,7 @@ interface ITVSeasons {
 }
 
 interface ITVEpisodes {
-  getDetails: <T extends TVEpisodesAppendToResponse[]>(tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetDetailsParams<T>) => Promise<TVEpisodesGetDetailsResponse>;
+  getDetails: <T extends TVEpisodesAppendToResponse[]>(tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetDetailsParams<T>) => Promise<TVEpisodesGetDetailsResponse<T>>;
   getAccountStates: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetAccountStatesParams) => Promise<TVEpisodesGetAccountStatesResponse>;
   getChanges: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetChangesParams) => Promise<TVEpisodesGetChangesResponse>;
   getCredits: (tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetCreditsParams) => Promise<TVEpisodesGetCreditsResponse>;
