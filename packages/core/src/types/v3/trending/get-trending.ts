@@ -29,4 +29,5 @@ export interface TrendingGetTrendingResult {
 export interface TrendingGetTrendingParams {
   media_type: "all" | "movie" | "tv" | "person";
   time_window: "day" | "week";
+  language?: string;
 }

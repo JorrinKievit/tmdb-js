@@ -1,9 +1,10 @@
 import { AppendToResponseType, MoviesAppendToResponse } from "../../append-to-response";
+import { BelongsToConnection } from "./shared";
 
 export type MoviesGetDetailsBaseResponse = {
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: null;
+  belongs_to_collection: BelongsToConnection | null;
   budget: number;
   genres: MoviesGetDetailsGenre[];
   homepage: string;

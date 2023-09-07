@@ -22,3 +22,4 @@ export * from "./get-upcoming";
 export * from "./get-videos";
 export * from "./get-watch-providers";
 export * from "./rate-movie";
+export * from "./shared";
