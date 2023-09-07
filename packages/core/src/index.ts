@@ -464,7 +464,11 @@ interface INetworks {
 }
 
 interface ITrending {
-  getTrending: (mediaType: TrendingGetTrendingParams["media_type"], timeWindow: TrendingGetTrendingParams["time_window"]) => Promise<TrendingGetTrendingResponse>;
+  getTrending: (
+    mediaType: TrendingGetTrendingParams["media_type"],
+    timeWindow: TrendingGetTrendingParams["time_window"],
+    language?: TrendingGetTrendingParams["language"],
+  ) => Promise<TrendingGetTrendingResponse>;
 }
 
 interface IPeople {
