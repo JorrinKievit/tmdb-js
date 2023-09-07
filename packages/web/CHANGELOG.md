@@ -1,5 +1,12 @@
 # tmdb-js-web
 
+## 1.1.3
+
+### Patch Changes
+
+- aea9e9d: #9 Added typings to belongs_to_collection
+  #10 Added language param to the trending endpoint
+
 ## 1.1.2
 
 ### Patch Changes
