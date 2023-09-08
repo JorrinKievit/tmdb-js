@@ -13,6 +13,8 @@ export interface TVEpisodesGetDetailsBaseResponse {
   still_path: string;
   vote_average: number;
   vote_count: number;
+  show_id: number;
+  runtime: number;
 }
 
 export interface TVEpisodesGetDetailsCrew {
@@ -22,6 +24,11 @@ export interface TVEpisodesGetDetailsCrew {
   department: string;
   job: string;
   profile_path: null | string;
+  adult: boolean;
+  gender: number;
+  known_for_department: string;
+  original_name: string;
+  popularity: number;
 }
 
 export interface TVEpisodesGetDetailsGuestStar {
@@ -31,6 +38,11 @@ export interface TVEpisodesGetDetailsGuestStar {
   character: string;
   order: number;
   profile_path: string;
+  adult: boolean;
+  gender: number;
+  known_for_department: string;
+  original_name: string;
+  popularity: number;
 }
 
 export interface TVEpisodesGetDetailsParams<T extends TVEpisodesAppendToResponse[]> {
