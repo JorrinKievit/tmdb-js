@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.1.4
+
+### Patch Changes
+
+- 9e82c6f: Updated TV Episodes get details endpoint
+
 ## 1.1.3
 
 ### Patch Changes
