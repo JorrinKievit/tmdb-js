@@ -1,5 +1,12 @@
 # tmdb-js-node
 
+## 1.1.5
+
+### Patch Changes
+
+- 185523b: - #13: Updated types for TV Seasons endpoint
+  - #16: Replaced all Date types with string
+
 ## 1.1.4
 
 ### Patch Changes
