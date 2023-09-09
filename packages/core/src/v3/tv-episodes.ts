@@ -1,9 +1,9 @@
-import { Http, ITMDBAPI } from "..";
+import { Http, ITMDBAPI, TVEpisodesAppendToResponse, TVEpisodesGetExternalIDsResponse } from "..";
 import { TVEpisodesDeleteRatingResponse } from "../types/v3/tv-episodes/delete-rating";
 import { TVEpisodesGetAccountStatesResponse } from "../types/v3/tv-episodes/get-account-states";
 import { TVEpisodesGetChangesResponse } from "../types/v3/tv-episodes/get-changes";
 import { TVEpisodesGetCreditsResponse } from "../types/v3/tv-episodes/get-credits";
-import { TVEpisodesGetDetailsResponse } from "../types/v3/tv-episodes/get-details";
+import { TVEpisodesGetDetailsParams, TVEpisodesGetDetailsResponse } from "../types/v3/tv-episodes/get-details";
 import { TVEpisodesGetImagesResponse } from "../types/v3/tv-episodes/get-images";
 import { TVEpisodesGetTranslationsResponse } from "../types/v3/tv-episodes/get-translations";
 import { TVEpisodesGetVideosResponse } from "../types/v3/tv-episodes/get-videos";
@@ -12,8 +12,8 @@ import { buildV3Url } from "../utils/api";
 
 export const createV3TVEpisodesMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["tvEpisodes"] => {
   return {
-    getDetails: async (tvId, seasonNumber, episodeNumber, params) => {
-      const res = await client.get<TVEpisodesGetDetailsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}/episode/${episodeNumber}`, params));
+    getDetails: async <T extends TVEpisodesAppendToResponse[]>(tvId: number, seasonNumber: number, episodeNumber: number, params?: TVEpisodesGetDetailsParams<T>) => {
+      const res = await client.get<TVEpisodesGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}/episode/${episodeNumber}`, params));
 
       return res;
     },
@@ -33,7 +33,7 @@ export const createV3TVEpisodesMethods = (client: Http, apiKey: string, url: str
       return res;
     },
     getExternalIds: async (tvId, seasonNumber, episodeNumber) => {
-      const res = await client.get<TVEpisodesGetDetailsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}/episode/${episodeNumber}/external_ids`));
+      const res = await client.get<TVEpisodesGetExternalIDsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}/episode/${episodeNumber}/external_ids`));
 
       return res;
     },

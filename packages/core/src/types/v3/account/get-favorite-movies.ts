@@ -13,7 +13,7 @@ export interface AccountGetFavoriteMoviesResult {
   original_language: string;
   original_title: string;
   overview: string;
-  release_date: Date;
+  release_date: string;
   poster_path: null;
   popularity: number;
   title: string;

@@ -18,7 +18,7 @@ export interface CreditsGetDetailsMedia {
 }
 
 export interface CreditsGetDetailsSeason {
-  air_date: Date;
+  air_date: string;
   poster_path: string;
   season_number: number;
 }

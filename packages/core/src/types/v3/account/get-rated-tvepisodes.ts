@@ -6,7 +6,7 @@ export interface AccountGetRatedTVEpisodesResponse {
 }
 
 export interface AccountGetRatedTVEpisodesResult {
-  air_date: Date;
+  air_date: string;
   episode_number: number;
   id: number;
   name: string;

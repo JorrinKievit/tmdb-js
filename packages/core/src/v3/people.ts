@@ -1,7 +1,7 @@
-import { Http, ITMDBAPI } from "..";
+import { Http, ITMDBAPI, PeopleAppendToResponse } from "..";
 import { PeopleGetChangesResponse } from "../types/v3/people/get-changes";
 import { PeopleGetCombinedCreditsResponse } from "../types/v3/people/get-combined-credits";
-import { PeopleGetDetailsResponse } from "../types/v3/people/get-details";
+import { PeopleGetDetailsParams, PeopleGetDetailsResponse } from "../types/v3/people/get-details";
 import { PeopleGetExternalIdsResponse } from "../types/v3/people/get-external-ids";
 import { PeopleGetImagesResponse } from "../types/v3/people/get-images";
 import { PeopleGetLatestResponse } from "../types/v3/people/get-latest";
@@ -14,8 +14,8 @@ import { buildV3Url } from "../utils/api";
 
 export const createV3PeopleMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["people"] => {
   return {
-    getDetails: async (personId, params) => {
-      const res = await client.get<PeopleGetDetailsResponse>(buildV3Url(apiKey, `${url}person/${personId}`, params));
+    getDetails: async <T extends PeopleAppendToResponse[]>(personId: number, params?: PeopleGetDetailsParams<T>) => {
+      const res = await client.get<PeopleGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}person/${personId}`, params));
 
       return res;
     },

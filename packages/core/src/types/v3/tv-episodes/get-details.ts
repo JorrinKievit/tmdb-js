@@ -9,38 +9,37 @@ export interface TVEpisodesGetDetailsBaseResponse {
   overview: string;
   id: number;
   production_code: string;
+  runtime: number;
   season_number: number;
   still_path: string;
   vote_average: number;
   vote_count: number;
-  show_id: number;
-  runtime: number;
 }
 
 export interface TVEpisodesGetDetailsCrew {
-  id: number;
-  credit_id: string;
-  name: string;
   department: string;
   job: string;
-  profile_path: null | string;
+  credit_id: string;
   adult: boolean;
   gender: number;
-  known_for_department: string;
+  id: number;
+  profile_path: null | string;
+  name: string;
   original_name: string;
+  known_for_department: string;
   popularity: number;
 }
 
 export interface TVEpisodesGetDetailsGuestStar {
+  character: string;
+  credit_id: string;
+  order: number;
+  adult: boolean;
   id: number;
   name: string;
-  credit_id: string;
-  character: string;
-  order: number;
-  profile_path: string;
-  adult: boolean;
-  gender: number;
   known_for_department: string;
+  profile_path: string;
+  gender: number;
   original_name: string;
   popularity: number;
 }
