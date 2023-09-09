@@ -1,9 +1,9 @@
-import { Http, ITMDBAPI } from "..";
+import { Http, ITMDBAPI, TVSeasonsAppendToResponse } from "..";
 import { TVSeasonsGetAccountStatesResponse } from "../types/v3/tv-seasons/get-account-states";
 import { TVSeasonsGetAggregateCreditsResponse } from "../types/v3/tv-seasons/get-aggregate-credits";
 import { TVSeasonsGetChangesResponse } from "../types/v3/tv-seasons/get-changes";
 import { TVSeasonsGetCreditsResponse } from "../types/v3/tv-seasons/get-credits";
-import { TVSeasonsGetDetailsResponse } from "../types/v3/tv-seasons/get-details";
+import { TVSeasonsGetDetailsParams, TVSeasonsGetDetailsResponse } from "../types/v3/tv-seasons/get-details";
 import { TVSeasonsGetExternalIDsResponse } from "../types/v3/tv-seasons/get-external-ids";
 import { TVSeasonsGetImagesResponse } from "../types/v3/tv-seasons/get-images";
 import { TVSeasonsGetTranslationsResponse } from "../types/v3/tv-seasons/get-translations";
@@ -12,8 +12,8 @@ import { buildV3Url } from "../utils/api";
 
 export const createV3TVSeasonsMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["tvSeasons"] => {
   return {
-    getDetails: async (tvId, seasonNumber, params) => {
-      const res = await client.get<TVSeasonsGetDetailsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}`, params));
+    getDetails: async <T extends TVSeasonsAppendToResponse[]>(tvId: number, seasonNumber: number, params?: TVSeasonsGetDetailsParams<T>) => {
+      const res = await client.get<TVSeasonsGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}tv/${tvId}/season/${seasonNumber}`, params));
 
       return res;
     },

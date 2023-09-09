@@ -10,15 +10,16 @@ export interface CollectionsGetDetailsResponse {
 export interface CollectionsGetDetailsPart {
   adult: boolean;
   backdrop_path: null;
-  genre_ids: number[];
   id: number;
+  title: string;
   original_language: string;
   original_title: string;
   overview: string;
-  release_date: Date;
   poster_path: string;
+  media_type: string;
+  genre_ids: number[];
   popularity: number;
-  title: string;
+  release_date: string;
   video: boolean;
   vote_average: number;
   vote_count: number;

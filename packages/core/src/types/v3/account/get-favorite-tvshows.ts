@@ -7,7 +7,7 @@ export interface AccountGetFavoriteTVShowsResponse {
 
 export interface AccountGetFavoriteTVShowsResult {
   backdrop_path: null;
-  first_air_date: Date;
+  first_air_date: string;
   genre_ids: number[];
   id: number;
   original_language: string;

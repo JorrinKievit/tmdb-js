@@ -1,4 +1,4 @@
-import { Http, ITMDBAPI } from "..";
+import { Http, ITMDBAPI, TVAppendToResponse } from "..";
 import { TVDeleteRatingResponse } from "../types/v3/tv/delete-rating";
 import { TVGetAccountStatesResponse } from "../types/v3/tv/get-account-states";
 import { TVGetAggregateCreditsResponse } from "../types/v3/tv/get-aggregate-credits";
@@ -6,7 +6,7 @@ import { TVGetAlternativeTitlesResponse } from "../types/v3/tv/get-alternative-t
 import { TVGetChangesResponse } from "../types/v3/tv/get-changes";
 import { TVGetContentRatingsResponse } from "../types/v3/tv/get-content-ratings";
 import { TVGetCreditsResponse } from "../types/v3/tv/get-credits";
-import { TVGetDetailsResponse } from "../types/v3/tv/get-details";
+import { TVGetDetailsParams, TVGetDetailsResponse } from "../types/v3/tv/get-details";
 import { TVGetEpisodeGroupsResponse } from "../types/v3/tv/get-episode-groups";
 import { TVGetExternalIdsResponse } from "../types/v3/tv/get-external-ids";
 import { TVGetImagesResponse } from "../types/v3/tv/get-images";
@@ -28,8 +28,8 @@ import { buildV3Url } from "../utils/api";
 
 export const createV3TvMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["tv"] => {
   return {
-    getDetails: async (tvId, params) => {
-      const res = await client.get<TVGetDetailsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}`, params));
+    getDetails: async <T extends TVAppendToResponse[]>(tvId: number, params?: TVGetDetailsParams<T>) => {
+      const res = await client.get<TVGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}tv/${tvId}`, params));
 
       return res;
     },

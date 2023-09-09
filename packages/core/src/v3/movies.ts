@@ -5,7 +5,7 @@ import { MoviesGetAccountStatesResponse } from "../types/v3/movies/get-account-s
 import { MoviesGetAlternativeTitlesResponse } from "../types/v3/movies/get-alternative-titles";
 import { MoviesGetChangesResponse } from "../types/v3/movies/get-changes";
 import { MoviesGetCreditsResponse } from "../types/v3/movies/get-credits";
-import { GetDetailsResponse, MoviesGetDetailsParams } from "../types/v3/movies/get-details";
+import { MoviesGetDetailsParams, MoviesGetDetailsResponse } from "../types/v3/movies/get-details";
 import { MoviesGetExternalIdsResponse } from "../types/v3/movies/get-external-ids";
 import { MoviesGetImagesResponse } from "../types/v3/movies/get-images";
 import { MoviesGetKeywordsResponse } from "../types/v3/movies/get-keywords";
@@ -28,7 +28,7 @@ import { buildV3Url } from "../utils/api";
 export const createV3MoviesMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["movies"] => {
   return {
     getDetails: async <T extends MoviesAppendToResponse[]>(movieId: number, params?: MoviesGetDetailsParams<T>) => {
-      const res = await client.get<GetDetailsResponse<T>>(buildV3Url(apiKey, `${url}movie/${movieId}`, params));
+      const res = await client.get<MoviesGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}movie/${movieId}`, params));
 
       return res;
     },
