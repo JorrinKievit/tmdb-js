@@ -1,8 +1,7 @@
-export interface SearchMoviesResponse {
-  page: number;
+import { PaginatedResponse } from "../PaginatedResults";
+
+export interface SearchMoviesResponse extends PaginatedResponse {
   results: SearchMoviesResult[];
-  total_results: number;
-  total_pages: number;
 }
 
 export interface SearchMoviesResult {

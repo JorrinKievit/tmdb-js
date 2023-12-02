@@ -1,8 +1,7 @@
-export interface SearchKeywordsResponse {
-  page: number;
+import { PaginatedResponse } from "../PaginatedResults";
+
+export interface SearchKeywordsResponse extends PaginatedResponse {
   results: SearchKeywordsResult[];
-  total_pages: number;
-  total_results: number;
 }
 
 export interface SearchKeywordsResult {

@@ -1,16 +1,18 @@
-export interface SearchPeopleResponse {
-  page: number;
+import { PaginatedResponse } from "../PaginatedResults";
+
+export interface SearchPeopleResponse extends PaginatedResponse {
   results: SearchPeopleResult[];
-  total_results: number;
-  total_pages: number;
 }
 
 export interface SearchPeopleResult {
   profile_path: null | string;
   adult: boolean;
+  gender: number;
   id: number;
+  known_for_department: string;
   known_for: SearchPeopleKnownFor[];
   name: string;
+  original_name: string;
   popularity: number;
 }
 

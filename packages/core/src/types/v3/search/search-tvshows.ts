@@ -1,11 +1,11 @@
-export interface SearchTVShowsResponse {
-  page: number;
+import { PaginatedResponse } from "../PaginatedResults";
+
+export interface SearchTVShowsResponse extends PaginatedResponse {
   results: SearchTVShowsResult[];
-  total_results: number;
-  total_pages: number;
 }
 
 export interface SearchTVShowsResult {
+  adult: boolean;
   poster_path: string;
   popularity: number;
   id: number;
@@ -27,4 +27,5 @@ export interface SearchTVShowsParams {
   page?: number;
   include_adult?: boolean;
   first_air_date_year?: number;
+  year?: string;
 }

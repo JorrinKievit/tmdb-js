@@ -1,14 +1,13 @@
-export interface SearchCompaniesResponse {
-  page: number;
+import { PaginatedResponse } from '../PaginatedResults';
+export interface SearchCompaniesResponse extends PaginatedResponse {
   results: SearchCompaniesResult[];
-  total_pages: number;
-  total_results: number;
 }
 
 export interface SearchCompaniesResult {
   id: number;
   logo_path: null | string;
   name: string;
+  origin_country: string;
 }
 
 export interface SearchCompaniesParams {
