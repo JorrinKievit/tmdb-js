@@ -1,11 +1,4 @@
-import PaginatedResponse from "../PaginatedResults"
-
-//export interface SearchCollectionsResponse {
-//  page: number;
-//  results: SearchCollectionsResult[];
-//  total_pages: number;
-//  total_results: number;
-//}
+import {PaginatedResponse} from "../PaginatedResults";
 
 export interface SearchCollectionsResponse extends PaginatedResponse {
     results: SearchCollectionsResult[];

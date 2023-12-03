@@ -1,8 +1,9 @@
-export interface SearchMultiSearchResponse {
-  page: number;
+import {PaginatedResponse} from '../PaginatedResults';
+
+
+
+export interface SearchMultiSearchResponse extends PaginatedResponse {
   results: SearchMultiSearchResult[];
-  total_results: number;
-  total_pages: number;
 }
 
 export interface SearchMultiSearchResult {
