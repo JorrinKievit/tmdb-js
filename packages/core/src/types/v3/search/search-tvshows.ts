@@ -1,8 +1,6 @@
 import { PaginatedResponse } from "../PaginatedResults";
 
-export interface SearchTVShowsResponse extends PaginatedResponse {
-  results: SearchTVShowsResult[];
-}
+export interface SearchTVShowsResponse extends PaginatedResponse<SearchTVShowsResult> {}
 
 export interface SearchTVShowsResult {
   adult: boolean;

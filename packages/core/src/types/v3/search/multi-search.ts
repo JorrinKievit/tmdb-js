@@ -2,9 +2,7 @@ import {PaginatedResponse} from '../PaginatedResults';
 
 
 
-export interface SearchMultiSearchResponse extends PaginatedResponse {
-  results: SearchMultiSearchResult[];
-}
+export interface SearchMultiSearchResponse extends PaginatedResponse<SearchMultiSearchResult> {}
 
 export interface SearchMultiSearchResult {
   poster_path?: null | string;

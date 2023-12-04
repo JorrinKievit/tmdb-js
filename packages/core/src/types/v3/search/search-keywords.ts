@@ -1,7 +1,6 @@
 import { PaginatedResponse } from "../PaginatedResults";
 
-export interface SearchKeywordsResponse extends PaginatedResponse {
-  results: SearchKeywordsResult[];
+export interface SearchKeywordsResponse extends PaginatedResponse<SearchKeywordsResult> {
 }
 
 export interface SearchKeywordsResult {

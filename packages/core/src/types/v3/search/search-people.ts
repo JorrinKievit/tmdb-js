@@ -1,8 +1,6 @@
 import { PaginatedResponse } from "../PaginatedResults";
 
-export interface SearchPeopleResponse extends PaginatedResponse {
-  results: SearchPeopleResult[];
-}
+export interface SearchPeopleResponse extends PaginatedResponse<SearchPeopleResult> {}
 
 export interface SearchPeopleResult {
   profile_path: null | string;

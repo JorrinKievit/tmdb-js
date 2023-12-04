@@ -1,7 +1,5 @@
 import { PaginatedResponse } from '../PaginatedResults';
-export interface SearchCompaniesResponse extends PaginatedResponse {
-  results: SearchCompaniesResult[];
-}
+export interface SearchCompaniesResponse extends PaginatedResponse<SearchCompaniesResult> {}
 
 export interface SearchCompaniesResult {
   id: number;

@@ -1,8 +1,6 @@
 import {PaginatedResponse} from "../PaginatedResults";
 
-export interface SearchCollectionsResponse extends PaginatedResponse {
-    results: SearchCollectionsResult[];
-}
+export interface SearchCollectionsResponse extends PaginatedResponse<SearchCollectionsResult> {}
 
 export interface SearchCollectionsResult {
   adult: boolean;

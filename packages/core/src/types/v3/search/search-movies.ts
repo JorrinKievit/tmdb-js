@@ -1,8 +1,6 @@
 import { PaginatedResponse } from "../PaginatedResults";
 
-export interface SearchMoviesResponse extends PaginatedResponse {
-  results: SearchMoviesResult[];
-}
+export interface SearchMoviesResponse extends PaginatedResponse<SearchMoviesResult> {}
 
 export interface SearchMoviesResult {
   poster_path: null | string;
