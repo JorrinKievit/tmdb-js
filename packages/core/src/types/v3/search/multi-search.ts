@@ -1,7 +1,7 @@
 import {PaginatedResponse} from '../PaginatedResults';
 
 
-
+// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
 export interface SearchMultiSearchResponse extends PaginatedResponse<SearchMultiSearchResult> {}
 
 export interface SearchMultiSearchResult {

@@ -1,6 +1,8 @@
 import { PaginatedResponse } from "../PaginatedResults";
 import {SearchQueryParams} from "./SearchBaseQueryParamters";
 
+
+// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
 export interface SearchTVShowsResponse extends PaginatedResponse<SearchTVShowsResult> {}
 
 export interface SearchTVShowsResult {

@@ -1,5 +1,7 @@
 import { PaginatedResponse } from "../PaginatedResults";
 import {BaseQueryParams, SearchQueryParams} from "./SearchBaseQueryParamters";
+
+// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
 export interface SearchPeopleResponse extends PaginatedResponse<SearchPeopleResult> {}
 
 export interface SearchPeopleResult {
@@ -36,4 +38,7 @@ export interface SearchPeopleKnownFor {
   original_name?: string;
 }
 
+
+
+// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
 export interface SearchPeopleParams extends SearchQueryParams {}
