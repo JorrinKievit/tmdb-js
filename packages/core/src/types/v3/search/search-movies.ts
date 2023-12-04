@@ -1,5 +1,5 @@
 import { PaginatedResponse } from "../PaginatedResults";
-
+import {SearchQueryParams} from "./SearchBaseQueryParamters";
 export interface SearchMoviesResponse extends PaginatedResponse<SearchMoviesResult> {}
 
 export interface SearchMoviesResult {
@@ -19,11 +19,7 @@ export interface SearchMoviesResult {
   vote_average: number;
 }
 
-export interface SearchMoviesParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
+export interface SearchMoviesParams extends SearchQueryParams {
   region?: string;
   year?: number;
   primary_release_year?: number;

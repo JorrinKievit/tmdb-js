@@ -1,4 +1,6 @@
 import { PaginatedResponse } from '../PaginatedResults';
+import {BaseQueryParams} from "./SearchBaseQueryParamters";
+
 export interface SearchCompaniesResponse extends PaginatedResponse<SearchCompaniesResult> {}
 
 export interface SearchCompaniesResult {
@@ -8,7 +10,6 @@ export interface SearchCompaniesResult {
   origin_country: string;
 }
 
-export interface SearchCompaniesParams {
-  query: string;
-  page?: number;
-}
+export interface SearchCompaniesParams extends BaseQueryParams {}
+
+

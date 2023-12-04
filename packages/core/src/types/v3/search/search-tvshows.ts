@@ -1,4 +1,5 @@
 import { PaginatedResponse } from "../PaginatedResults";
+import {SearchQueryParams} from "./SearchBaseQueryParamters";
 
 export interface SearchTVShowsResponse extends PaginatedResponse<SearchTVShowsResult> {}
 
@@ -19,11 +20,7 @@ export interface SearchTVShowsResult {
   original_name: string;
 }
 
-export interface SearchTVShowsParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
+export interface SearchTVShowsParams extends SearchQueryParams{
   first_air_date_year?: number;
   year?: string;
 }

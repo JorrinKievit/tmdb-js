@@ -1,4 +1,5 @@
 import {PaginatedResponse} from "../PaginatedResults";
+import {BaseQueryParams, SearchQueryParams} from "./SearchBaseQueryParamters";
 
 export interface SearchCollectionsResponse extends PaginatedResponse<SearchCollectionsResult> {}
 
@@ -13,10 +14,7 @@ export interface SearchCollectionsResult {
   backdrop_path: null | string;
 }
 
-export interface SearchCollectionsParams {
-  query: string;
-  include_adult?: boolean;
-  page?: number;
-  language?: string;
+export interface SearchCollectionsParams extends SearchQueryParams {
   region?: string;
 }
+

@@ -1,5 +1,5 @@
 import { PaginatedResponse } from "../PaginatedResults";
-
+import {BaseQueryParams, SearchQueryParams} from "./SearchBaseQueryParamters";
 export interface SearchPeopleResponse extends PaginatedResponse<SearchPeopleResult> {}
 
 export interface SearchPeopleResult {
@@ -36,10 +36,4 @@ export interface SearchPeopleKnownFor {
   original_name?: string;
 }
 
-export interface SearchPeopleParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
-
-}
+export interface SearchPeopleParams extends SearchQueryParams {}
