@@ -41,5 +41,5 @@ export interface SearchPeopleParams {
   language?: string;
   page?: number;
   include_adult?: boolean;
-  region?: string;
+
 }

@@ -33,5 +33,5 @@ export interface SearchMultiSearchParams {
   language?: string;
   page?: number;
   include_adult?: boolean;
-  region?: string;
+
 }
