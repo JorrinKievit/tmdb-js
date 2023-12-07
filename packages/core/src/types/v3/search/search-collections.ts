@@ -1,7 +1,8 @@
-import {PaginatedResponse} from "../PaginatedResults";
-import {BaseQueryParams, SearchQueryParams} from "./SearchBaseQueryParamters";
-// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
-export interface SearchCollectionsResponse extends PaginatedResponse<SearchCollectionsResult> {}
+import {PaginatedResponse} from "../paginated-results";
+import {SearchQueryParams} from "./search-base-query-parameters";
+
+
+export type SearchCollectionsResponse =  PaginatedResponse<SearchCollectionsResult>;
 
 export interface SearchCollectionsResult {
   adult: boolean;

@@ -1,8 +1,8 @@
-import {PaginatedResponse} from '../PaginatedResults';
+import {PaginatedResponse} from '../paginated-results';
 
 
-// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
-export interface SearchMultiSearchResponse extends PaginatedResponse<SearchMultiSearchResult> {}
+
+export type SearchMultiSearchResponse = PaginatedResponse<SearchMultiSearchResult>;
 
 export interface SearchMultiSearchResult {
   poster_path?: null | string;

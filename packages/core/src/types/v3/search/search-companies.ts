@@ -1,8 +1,8 @@
-import { PaginatedResponse } from '../PaginatedResults';
-import {BaseQueryParams} from "./SearchBaseQueryParamters";
+import { PaginatedResponse } from '../paginated-results';
+import {BaseQueryParams} from "./search-base-query-parameters";
 
-// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
-export interface SearchCompaniesResponse extends PaginatedResponse<SearchCompaniesResult> {}
+
+export type SearchCompaniesResponse = PaginatedResponse<SearchCompaniesResult>;
 
 export interface SearchCompaniesResult {
   id: number;
@@ -11,7 +11,7 @@ export interface SearchCompaniesResult {
   origin_country: string;
 }
 
-// ESLint might complain about this empty interface, but it was left empty (and not removed) so locations that used this type wouldn't break or have to be changed.
-export interface SearchCompaniesParams extends BaseQueryParams {}
+
+export type SearchCompaniesParams =   BaseQueryParams;
 
 
