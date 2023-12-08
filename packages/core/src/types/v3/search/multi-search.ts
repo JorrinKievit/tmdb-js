@@ -1,6 +1,4 @@
-import {PaginatedResponse} from '../paginated-results';
-
-
+import { PaginatedResponse } from "../paginated-response";
 
 export type SearchMultiSearchResponse = PaginatedResponse<SearchMultiSearchResult>;
 
@@ -33,5 +31,4 @@ export interface SearchMultiSearchParams {
   language?: string;
   page?: number;
   include_adult?: boolean;
-
 }
