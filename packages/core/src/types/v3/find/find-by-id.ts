@@ -27,9 +27,7 @@ export interface FindFindByIdPersonResult {
   profile_path: string;
   adult: boolean;
   id: number;
-  known_for:
-    | FindFindByIdPersonResultKnownForMovie[]
-    | FindFindByIdPersonResultKnownForTV[];
+  known_for: FindFindByIdPersonResultKnownForMovie[] | FindFindByIdPersonResultKnownForTV[];
   name: string;
   popularity: number;
 }
