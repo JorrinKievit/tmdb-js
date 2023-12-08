@@ -15,17 +15,29 @@
     "prerelease": "pnpm run build",
     "version-packages": "changeset version",
     "release": "changeset publish",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
+    "publish-packages": "turbo run build && changeset version && changeset publish",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@changesets/cli": "latest",
     "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "prettier": "latest",
-    "turbo": "latest",
-    "@changesets/cli": "latest"
+    "turbo": "latest"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "pnpm run lint -- --fix --max-warnings 0",
+      "pnpm run format -- --write --no-warning"
+    ],
+    "*.{md}": [
+      "pnpm run format -- --write --no-warning"
+    ]
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
-  "dependencies": {},
   "packageManager": "pnpm@8.7.0"
 }
