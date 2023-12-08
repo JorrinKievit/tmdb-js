@@ -1,21 +1,13 @@
+import  {BaseCrewCredit, BaseCastCredit} from "../base-cast-crew-results";
+
 export interface TVGetCreditsResponse {
   cast: TVGetCreditsCast[];
-}
-
-export interface TVGetCreditsCast {
-  adult: boolean;
-  gender: number;
+  crew: TVGetCreditsCrew[];
   id: number;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path: string;
-  character: string;
-  credit_id: string;
-  order: number;
 }
 
+export type TVGetCreditsCast = BaseCastCredit;
+export type TVGetCreditsCrew = BaseCrewCredit;
 export interface TVGetCreditsParams {
   language?: string;
 }
