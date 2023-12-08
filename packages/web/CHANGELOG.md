@@ -1,5 +1,11 @@
 # tmdb-js-web
 
+## 1.1.6
+
+### Patch Changes
+
+- 45b7a5e: Updated v3 search endpoints
+
 ## 1.1.5
 
 ### Patch Changes
