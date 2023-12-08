@@ -1,19 +1,19 @@
-export interface SearchCollectionsResponse {
-  page: number;
-  results: SearchCollectionsResult[];
-  total_pages: number;
-  total_results: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
+
+export type SearchCollectionsResponse = PaginatedResponse<SearchCollectionsResult>;
 
 export interface SearchCollectionsResult {
+  adult: boolean;
   id: number;
   name: string;
+  original_language: string;
+  original_name: string;
+  overview: string;
   poster_path: null | string;
   backdrop_path: null | string;
 }
 
-export interface SearchCollectionsParams {
-  query: string;
-  page?: number;
-  language?: string;
+export interface SearchCollectionsParams extends SearchQueryParams {
+  region?: string;
 }

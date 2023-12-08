@@ -1,9 +1,7 @@
-export interface SearchMoviesResponse {
-  page: number;
-  results: SearchMoviesResult[];
-  total_results: number;
-  total_pages: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
+
+export type SearchMoviesResponse = PaginatedResponse<SearchMoviesResult>;
 
 export interface SearchMoviesResult {
   poster_path: null | string;
@@ -22,11 +20,7 @@ export interface SearchMoviesResult {
   vote_average: number;
 }
 
-export interface SearchMoviesParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
+export interface SearchMoviesParams extends SearchQueryParams {
   region?: string;
   year?: number;
   primary_release_year?: number;

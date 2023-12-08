@@ -1,16 +1,17 @@
-export interface SearchPeopleResponse {
-  page: number;
-  results: SearchPeopleResult[];
-  total_results: number;
-  total_pages: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
+
+export type SearchPeopleResponse = PaginatedResponse<SearchPeopleResult>;
 
 export interface SearchPeopleResult {
   profile_path: null | string;
   adult: boolean;
+  gender: number;
   id: number;
+  known_for_department: string;
   known_for: SearchPeopleKnownFor[];
   name: string;
+  original_name: string;
   popularity: number;
 }
 
@@ -36,10 +37,4 @@ export interface SearchPeopleKnownFor {
   original_name?: string;
 }
 
-export interface SearchPeopleParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
-  region?: string;
-}
+export type SearchPeopleParams = SearchQueryParams;

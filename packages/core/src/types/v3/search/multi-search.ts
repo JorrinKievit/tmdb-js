@@ -1,9 +1,6 @@
-export interface SearchMultiSearchResponse {
-  page: number;
-  results: SearchMultiSearchResult[];
-  total_results: number;
-  total_pages: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+
+export type SearchMultiSearchResponse = PaginatedResponse<SearchMultiSearchResult>;
 
 export interface SearchMultiSearchResult {
   poster_path?: null | string;
@@ -34,5 +31,4 @@ export interface SearchMultiSearchParams {
   language?: string;
   page?: number;
   include_adult?: boolean;
-  region?: string;
 }

@@ -1,17 +1,13 @@
-export interface SearchCompaniesResponse {
-  page: number;
-  results: SearchCompaniesResult[];
-  total_pages: number;
-  total_results: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { BaseQueryParams } from "./search-base-query-parameters";
+
+export type SearchCompaniesResponse = PaginatedResponse<SearchCompaniesResult>;
 
 export interface SearchCompaniesResult {
   id: number;
   logo_path: null | string;
   name: string;
+  origin_country: string;
 }
 
-export interface SearchCompaniesParams {
-  query: string;
-  page?: number;
-}
+export type SearchCompaniesParams = BaseQueryParams;

@@ -1,11 +1,10 @@
-export interface SearchTVShowsResponse {
-  page: number;
-  results: SearchTVShowsResult[];
-  total_results: number;
-  total_pages: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
+
+export type SearchTVShowsResponse = PaginatedResponse<SearchTVShowsResult>;
 
 export interface SearchTVShowsResult {
+  adult: boolean;
   poster_path: string;
   popularity: number;
   id: number;
@@ -21,10 +20,7 @@ export interface SearchTVShowsResult {
   original_name: string;
 }
 
-export interface SearchTVShowsParams {
-  query: string;
-  language?: string;
-  page?: number;
-  include_adult?: boolean;
+export interface SearchTVShowsParams extends SearchQueryParams {
   first_air_date_year?: number;
+  year?: string;
 }

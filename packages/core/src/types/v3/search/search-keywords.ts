@@ -1,16 +1,11 @@
-export interface SearchKeywordsResponse {
-  page: number;
-  results: SearchKeywordsResult[];
-  total_pages: number;
-  total_results: number;
-}
+import { PaginatedResponse } from "../paginated-response";
+import { BaseQueryParams } from "./search-base-query-parameters";
+
+export type SearchKeywordsResponse = PaginatedResponse<SearchKeywordsResult>;
 
 export interface SearchKeywordsResult {
   id: number;
   name: string;
 }
 
-export interface SearchKeywordsParams {
-  query: string;
-  page?: number;
-}
+export type SearchKeywordsParams = BaseQueryParams;
