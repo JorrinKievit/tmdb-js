@@ -29,11 +29,11 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "pnpm run lint -- --fix --max-warnings 0",
-      "pnpm run format -- --write --no-warning"
+      "pnpm run lint -- --fix",
+      "pnpm run format -- --write"
     ],
     "*.{md}": [
-      "pnpm run format -- --write --no-warning"
+      "pnpm run format -- --write"
     ]
   },
   "engines": {
