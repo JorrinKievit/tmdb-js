@@ -30,4 +30,4 @@ jobs:
         with:
           version: latest
       - run: pnpm i
-      - run: pnpm run lint && pnpm run format
+      - run: pnpm run lint -- --max-warnings 0 && pnpm run format -- --check
