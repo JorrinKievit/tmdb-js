@@ -21,7 +21,10 @@ export interface PeoplePersonCredit {
 interface PeopleCastCreditSpecificFields{
     character: string;
 }
- type PeopleCrewCreditSpecificFields = { job: string; department: string; }
+ interface PeopleCrewCreditSpecificFields{
+    job: string;
+    department: string;
+}
 
 export interface PeopleBaseCastGetMovieGetCombinedCredit extends PeopleCastAndCrewGetCombinedGetTvCredit, PeoplePersonCredit, PeopleCastCreditSpecificFields {
     order: number;
