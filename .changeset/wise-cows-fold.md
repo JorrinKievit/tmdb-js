@@ -1,5 +1,6 @@
 ---
-"tmdb-js-core": major
+"tmdb-js-core": patch
+"tmdb-js-web": patch 
 ---
 In movie and tv endpoint get-credits result types has an added a "crew" field that contains an array of the corresponding crew type was added, and an "id" field
 

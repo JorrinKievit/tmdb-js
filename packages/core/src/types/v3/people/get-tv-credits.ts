@@ -1,4 +1,4 @@
-import {PeopleBaseCastGetTvCredit, PeopleBaseCrewGetTvCredit} from "./bast-cast-crew-credits";
+import {PeopleBaseCastGetTvCredit, PeopleBaseCrewGetTvCredit} from "./base-cast-crew-credits";
 
 export interface PeopleGetTvCreditsResponse {
   cast: PeopleGetTvCreditsCast[];

@@ -1,4 +1,4 @@
-import {BasePersonCredit} from '../base-cast-crew-results'
+import {BasePersonCredit} from '../base-credit-results'
 
 
 export interface TVGetAggregateCreditsResponse {
