@@ -1,5 +1,5 @@
 
-import {PaginatedResponse} from '../paginated-results';
+import {PaginatedResponse} from '../paginated-response';
 import {SearchQueryParams} from "./search-base-query-parameters";
 
 
