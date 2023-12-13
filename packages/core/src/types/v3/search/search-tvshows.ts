@@ -1,7 +1,5 @@
-import { PaginatedResponse } from "../paginated-results";
-import {SearchQueryParams} from "./search-base-query-parameters";
-
-
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
 
 export type SearchTVShowsResponse = PaginatedResponse<SearchTVShowsResult>;
 

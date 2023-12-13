@@ -1,8 +1,7 @@
-import {PaginatedResponse} from "../paginated-results";
-import {SearchQueryParams} from "./search-base-query-parameters";
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
 
-
-export type SearchCollectionsResponse =  PaginatedResponse<SearchCollectionsResult>;
+export type SearchCollectionsResponse = PaginatedResponse<SearchCollectionsResult>;
 
 export interface SearchCollectionsResult {
   adult: boolean;
@@ -18,4 +17,3 @@ export interface SearchCollectionsResult {
 export interface SearchCollectionsParams extends SearchQueryParams {
   region?: string;
 }
-

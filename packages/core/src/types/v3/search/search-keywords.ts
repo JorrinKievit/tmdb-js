@@ -1,8 +1,5 @@
-import { PaginatedResponse } from "../paginated-results";
-import {BaseQueryParams} from "./search-base-query-parameters";
-
-
-
+import { PaginatedResponse } from "../paginated-response";
+import { BaseQueryParams } from "./search-base-query-parameters";
 
 export type SearchKeywordsResponse = PaginatedResponse<SearchKeywordsResult>;
 
@@ -12,4 +9,3 @@ export interface SearchKeywordsResult {
 }
 
 export type SearchKeywordsParams = BaseQueryParams;
-

@@ -1,6 +1,5 @@
-import { PaginatedResponse } from "../paginated-results";
-import {BaseQueryParams, SearchQueryParams} from "./search-base-query-parameters";
-
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
 
 export type SearchPeopleResponse = PaginatedResponse<SearchPeopleResult>;
 
@@ -37,8 +36,5 @@ export interface SearchPeopleKnownFor {
   name?: string;
   original_name?: string;
 }
-
-
-
 
 export type SearchPeopleParams = SearchQueryParams;

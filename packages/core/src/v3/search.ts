@@ -8,7 +8,6 @@ import { SearchPeopleResponse } from "../types/v3/search/search-people";
 import { SearchTVShowsResponse } from "../types/v3/search/search-tvshows";
 import { buildV3Url } from "../utils/api";
 
-
 export const createV3SearchMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["search"] => {
   return {
     searchCompanies: async (params) => {

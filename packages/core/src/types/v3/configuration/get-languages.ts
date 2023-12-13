@@ -1,5 +1,4 @@
-export type ConfigurationGetLanguagesResponse =
-  ConfigurationGetLanguagesResult[];
+export type ConfigurationGetLanguagesResponse = ConfigurationGetLanguagesResult[];
 
 export interface ConfigurationGetLanguagesResult {
   iso_639_1: string;
