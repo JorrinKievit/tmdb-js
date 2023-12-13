@@ -1,4 +1,4 @@
-import {PeopleBaseCastGetMovieGetCombinedCredit, PeopleBaseCrewGetMovieGetCombinedCredit} from "./base-cast-crew-credits";
+import { PeopleBaseCastGetMovieGetCombinedCredit, PeopleBaseCrewGetMovieGetCombinedCredit } from "./base-cast-crew-credits";
 
 export interface PeopleGetMovieCreditsResponse {
   cast: PeopleGetMovieCreditsCast[];

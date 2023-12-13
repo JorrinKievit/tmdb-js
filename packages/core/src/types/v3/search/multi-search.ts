@@ -1,7 +1,5 @@
-
-import {PaginatedResponse} from '../paginated-response';
-import {SearchQueryParams} from "./search-base-query-parameters";
-
+import { PaginatedResponse } from "../paginated-response";
+import { SearchQueryParams } from "./search-base-query-parameters";
 
 export type SearchMultiSearchResponse = PaginatedResponse<SearchMultiSearchResult>;
 
@@ -28,6 +26,4 @@ export interface SearchMultiSearchResult {
   profile_path?: null | string;
   known_for?: SearchMultiSearchResult[];
 }
-export type  SearchMultiSearchParams = SearchQueryParams;
-
-
+export type SearchMultiSearchParams = SearchQueryParams;

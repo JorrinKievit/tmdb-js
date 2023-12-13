@@ -1,4 +1,4 @@
-import  {BaseCrewCredit, BaseCastCredit} from "../base-credit-results";
+import { BaseCrewCredit, BaseCastCredit } from "../base-credit-results";
 
 export interface TVGetCreditsResponse {
   cast: TVGetCreditsCast[];

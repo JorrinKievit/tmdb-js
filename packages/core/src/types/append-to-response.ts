@@ -169,14 +169,14 @@ export interface TVEpisodesAppendToResponseTypes {
 type ResponseTypeFor<T> = T extends keyof MoviesAppendToResponseTypes
   ? MoviesAppendToResponseTypes[T]
   : T extends keyof TVAppendToResponseTypes
-    ? TVAppendToResponseTypes[T]
-    : T extends keyof PeopleAppendToResponseTypes
-      ? PeopleAppendToResponseTypes[T]
-      : T extends keyof TVSeasonsAppendToResponseTypes
-        ? TVSeasonsAppendToResponseTypes[T]
-        : T extends keyof TVEpisodesAppendToResponseTypes
-          ? TVEpisodesAppendToResponseTypes[T]
-          : never;
+  ? TVAppendToResponseTypes[T]
+  : T extends keyof PeopleAppendToResponseTypes
+  ? PeopleAppendToResponseTypes[T]
+  : T extends keyof TVSeasonsAppendToResponseTypes
+  ? TVSeasonsAppendToResponseTypes[T]
+  : T extends keyof TVEpisodesAppendToResponseTypes
+  ? TVEpisodesAppendToResponseTypes[T]
+  : never;
 
 type ExtractValidKeys<T> = T extends (infer U)[] ? U : never;
 

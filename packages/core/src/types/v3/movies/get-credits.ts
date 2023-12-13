@@ -1,4 +1,4 @@
-import {BaseCastCredit, BaseCrewCredit} from "../base-credit-results";
+import { BaseCastCredit, BaseCrewCredit } from "../base-credit-results";
 
 export interface MoviesGetCreditsResponse {
   id: number;
@@ -10,7 +10,7 @@ export interface MoviesGetCreditsCast extends BaseCastCredit {
   cast_id: number;
 }
 
-export type MoviesGetCreditsCrew =  BaseCrewCredit;
+export type MoviesGetCreditsCrew = BaseCrewCredit;
 export interface MoviesGetCreditsParams {
   language?: string;
 }

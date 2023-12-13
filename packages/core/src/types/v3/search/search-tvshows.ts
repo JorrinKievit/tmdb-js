@@ -20,7 +20,7 @@ export interface SearchTVShowsResult {
   original_name: string;
 }
 
-export interface SearchTVShowsParams extends SearchQueryParams{
+export interface SearchTVShowsParams extends SearchQueryParams {
   first_air_date_year?: string;
   year?: string;
 }
