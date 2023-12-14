@@ -1,5 +1,5 @@
 ---
-"tmdb-js-core": patch
+"tmdb-js-node": patch
 "tmdb-js-web": patch
 ---
 
@@ -14,3 +14,5 @@ added new base cast/crew credits specifically for people endpoints.
 Used these to build types for people/get-combined-credits people/get-movie-credits people/get-tv-credits
 
 New "crew" field in aggretated-credit tv endppoint uses builds off a base type used by the new tv and movie endpoint credit reponse type but adds some new fields needed for that endpoint. The result type for aggregrated-credit also now builds off 5those types
+
+Thanks @newmoneybigbucks for the contribution!
