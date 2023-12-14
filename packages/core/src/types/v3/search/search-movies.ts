@@ -22,6 +22,6 @@ export interface SearchMoviesResult {
 
 export interface SearchMoviesParams extends SearchQueryParams {
   region?: string;
-  year?: number;
-  primary_release_year?: number;
+  year?: string;
+  primary_release_year?: string;
 }

@@ -1,26 +1,13 @@
+import { PeopleBaseCrewGetMovieGetCombinedCredit, PeopleBaseCastGetMovieGetCombinedCredit } from "./base-cast-crew-credits";
+
 export interface PeopleGetCombinedCreditsResponse {
   cast: PeopleGetCombinedCreditsCast[];
+  crew: PeopleGetCombinedCreditsCrew[];
+  id: number;
 }
 
-export interface PeopleGetCombinedCreditsCast {
-  id: number;
-  original_language: string;
-  episode_count: number;
-  overview: string;
-  origin_country: string[];
-  original_name: string;
-  genre_ids: number[];
-  name: string;
-  media_type: string;
-  poster_path: string;
-  first_air_date: string;
-  vote_average: number;
-  vote_count: number;
-  character: string;
-  backdrop_path: string;
-  popularity: number;
-  credit_id: string;
-}
+export type PeopleGetCombinedCreditsCast = PeopleBaseCastGetMovieGetCombinedCredit & { media_type: "movie" | "tv" };
+export type PeopleGetCombinedCreditsCrew = PeopleBaseCrewGetMovieGetCombinedCredit & { media_type: "movie" | "tv" };
 
 export interface PeopleGetCombinedCreditsParams {
   language?: string;

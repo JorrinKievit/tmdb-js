@@ -21,6 +21,6 @@ export interface SearchTVShowsResult {
 }
 
 export interface SearchTVShowsParams extends SearchQueryParams {
-  first_air_date_year?: number;
+  first_air_date_year?: string;
   year?: string;
 }

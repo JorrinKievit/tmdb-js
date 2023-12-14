@@ -32,4 +32,8 @@ yarn-error.log*
 # turbo
 .turbo
 
+#ide config files 
+.idea/ 
+
+
 dist

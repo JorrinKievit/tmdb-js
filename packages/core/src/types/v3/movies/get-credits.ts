@@ -1,23 +1,16 @@
+import { BaseCastCredit, BaseCrewCredit } from "../base-credit-results";
+
 export interface MoviesGetCreditsResponse {
   id: number;
   cast: MoviesGetCreditsCast[];
+  crew: MoviesGetCreditsCrew[];
 }
 
-export interface MoviesGetCreditsCast {
-  adult: boolean;
-  gender: number;
-  id: number;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path: string;
+export interface MoviesGetCreditsCast extends BaseCastCredit {
   cast_id: number;
-  character: string;
-  credit_id: string;
-  order: number;
 }
 
+export type MoviesGetCreditsCrew = BaseCrewCredit;
 export interface MoviesGetCreditsParams {
   language?: string;
 }
