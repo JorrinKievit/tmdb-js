@@ -49,6 +49,3 @@ export interface TVSeasonsGetDetailsParams<T extends TVSeasonsAppendToResponse[]
 }
 
 export type TVSeasonsGetDetailsResponse<AppendToResponse extends TVSeasonsAppendToResponse[] | undefined> = TVSeasonsGetDetailsBaseResponse & AppendToResponseType<AppendToResponse, "tv_seasons">;
-
-
-
