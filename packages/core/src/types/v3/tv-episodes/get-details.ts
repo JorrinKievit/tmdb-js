@@ -49,4 +49,4 @@ export interface TVEpisodesGetDetailsParams<T extends TVEpisodesAppendToResponse
   append_to_response?: T;
 }
 
-export type TVEpisodesGetDetailsResponse<AppendToResponse extends TVEpisodesAppendToResponse[] | undefined> = TVEpisodesGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;
+export type TVEpisodesGetDetailsResponse<AppendToResponse extends TVEpisodesAppendToResponse[] | undefined> = TVEpisodesGetDetailsBaseResponse & AppendToResponseType<AppendToResponse, "tv_episodes">;

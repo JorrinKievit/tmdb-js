@@ -166,24 +166,36 @@ export interface TVEpisodesAppendToResponseTypes {
   videos: TVEpisodesGetVideosResponse;
 }
 
-type ResponseTypeFor<T> = T extends keyof MoviesAppendToResponseTypes
-  ? MoviesAppendToResponseTypes[T]
-  : T extends keyof TVAppendToResponseTypes
-    ? TVAppendToResponseTypes[T]
-    : T extends keyof PeopleAppendToResponseTypes
-      ? PeopleAppendToResponseTypes[T]
-      : T extends keyof TVSeasonsAppendToResponseTypes
-        ? TVSeasonsAppendToResponseTypes[T]
-        : T extends keyof TVEpisodesAppendToResponseTypes
-          ? TVEpisodesAppendToResponseTypes[T]
+type ResponseTypes = "movie" | "tv" | "people" | "tv_seasons" | "tv_episodes";
+type ResponseTypeFor<T, U> = U extends "movie"
+  ? T extends keyof MoviesAppendToResponseTypes
+    ? MoviesAppendToResponseTypes[T]
+    : never
+  : U extends "tv"
+    ? T extends keyof TVAppendToResponseTypes
+      ? TVAppendToResponseTypes[T]
+      : never
+    : U extends "people"
+      ? T extends keyof PeopleAppendToResponseTypes
+        ? PeopleAppendToResponseTypes[T]
+        : never
+      : U extends "tv_seasons"
+        ? T extends keyof TVSeasonsAppendToResponseTypes
+          ? TVSeasonsAppendToResponseTypes[T]
+          : never
+        : U extends "tv_episodes"
+          ? T extends keyof TVEpisodesAppendToResponseTypes
+            ? TVEpisodesAppendToResponseTypes[T]
+            : never
           : never;
 
 type ExtractValidKeys<T> = T extends (infer U)[] ? U : never;
 
 export type AppendToResponseType<
   AppendToResponse extends (MoviesAppendToResponse | TVAppendToResponse | PeopleAppendToResponse | TVSeasonsAppendToResponse | TVEpisodesAppendToResponse)[] | undefined,
+  ResponseType extends ResponseTypes,
 > = AppendToResponse extends undefined
   ? Record<string, never>
   : {
-      [K in ExtractValidKeys<AppendToResponse>]: ResponseTypeFor<K>;
+      [K in ExtractValidKeys<AppendToResponse>]: ResponseTypeFor<K, ResponseType>;
     };

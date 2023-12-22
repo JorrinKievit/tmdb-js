@@ -22,4 +22,4 @@ export interface PeopleGetDetailsParams<T extends PeopleAppendToResponse[]> {
   append_to_response?: T;
 }
 
-export type PeopleGetDetailsResponse<AppendToResponse extends PeopleAppendToResponse[] | undefined> = PeopleGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;
+export type PeopleGetDetailsResponse<AppendToResponse extends PeopleAppendToResponse[] | undefined> = PeopleGetDetailsBaseResponse & AppendToResponseType<AppendToResponse, "people">;
