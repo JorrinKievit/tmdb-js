@@ -1,5 +1,11 @@
 # tmdb-js-web
 
+## 1.1.8
+
+### Patch Changes
+
+- 1d10583: Fix wrong return type when supplying an append_to_response array for some functions, thanks @newmoneybigbucks!
+
 ## 1.1.7
 
 ### Patch Changes
