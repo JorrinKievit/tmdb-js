@@ -30,4 +30,4 @@ jobs:
         with:
           version: latest
       - run: pnpm i
-      - run: pnpm run lint -- --max-warnings 0 && prettier --check "**/*.{ts,tsx,md}" --print-width 200 --end-of-line crlf
+      - run: pnpm run lint -- --max-warnings 0 && npx prettier --check "**/*.{ts,tsx,md}" --print-width 200 --end-of-line crlf
