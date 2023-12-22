@@ -93,4 +93,4 @@ export interface TVGetDetailsParams<T extends TVAppendToResponse[]> {
   append_to_response?: T;
 }
 
-export type TVGetDetailsResponse<AppendToResponse extends TVAppendToResponse[] | undefined> = TVGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;
+export type TVGetDetailsResponse<AppendToResponse extends TVAppendToResponse[] | undefined> = TVGetDetailsBaseResponse & AppendToResponseType<AppendToResponse, "tv">;

@@ -56,4 +56,4 @@ export interface MoviesGetDetailsParams<T extends MoviesAppendToResponse[]> {
   append_to_response?: T;
 }
 
-export type MoviesGetDetailsResponse<AppendToResponse extends MoviesAppendToResponse[] | undefined> = MoviesGetDetailsBaseResponse & AppendToResponseType<AppendToResponse>;
+export type MoviesGetDetailsResponse<AppendToResponse extends MoviesAppendToResponse[] | undefined> = MoviesGetDetailsBaseResponse & AppendToResponseType<AppendToResponse, "movie">;
