@@ -197,5 +197,5 @@ export type AppendToResponseType<
 > = AppendToResponse extends undefined
   ? Record<string, never>
   : {
-    [K in ExtractValidKeys<AppendToResponse>]: ResponseTypeFor<K, ResponseType>;
-  };
+      [K in ExtractValidKeys<AppendToResponse>]: ResponseTypeFor<K, ResponseType>;
+    };
