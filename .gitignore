@@ -35,5 +35,8 @@ yarn-error.log*
 #ide config files 
 .idea/ 
 
+# junk test
+packages/junk_test.ts
+
 
 dist

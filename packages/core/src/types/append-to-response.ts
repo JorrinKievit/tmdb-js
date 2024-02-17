@@ -195,7 +195,7 @@ export type AppendToResponseType<
   AppendToResponse extends (MoviesAppendToResponse | TVAppendToResponse | PeopleAppendToResponse | TVSeasonsAppendToResponse | TVEpisodesAppendToResponse)[] | undefined,
   ResponseType extends ResponseTypes,
 > = AppendToResponse extends undefined
-  ? object //Record<string, never>
+  ? object
   : {
       [K in ExtractValidKeys<AppendToResponse>]: ResponseTypeFor<K, ResponseType>;
     };
