@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.1.9
+
+### Patch Changes
+
+- 722f537: Fix AppendToResponse never type
+
 ## 1.1.8
 
 ### Patch Changes
