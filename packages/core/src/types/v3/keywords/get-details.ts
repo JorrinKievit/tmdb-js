@@ -1,4 +1,4 @@
 export interface KeywordsGetDetailsResponse {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }

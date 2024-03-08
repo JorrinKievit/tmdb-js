@@ -1,8 +1,8 @@
 export interface ListsCheckItemStatusResponse {
-    id: string;
-    item_present: boolean;
+  id: string;
+  item_present: boolean;
 }
 
 export interface ListsCheckItemStatusParams {
-    movie_id: number;
+  movie_id: number;
 }

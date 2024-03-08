@@ -1,17 +1,17 @@
 export interface CertificationsGetMovieCertificationResponse {
-    certifications: Certifications;
+  certifications: Certifications;
 }
 
 export interface CertificationsGetTVCertificationResponse {
-    certifications: Certifications;
+  certifications: Certifications;
 }
 
 export interface Certifications {
-    [key: string]: Certification[];
+  [key: string]: Certification[];
 }
 
 export interface Certification {
-    certification: string;
-    meaning: string;
-    order: number;
+  certification: string;
+  meaning: string;
+  order: number;
 }

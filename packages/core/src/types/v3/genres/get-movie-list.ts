@@ -1,12 +1,12 @@
 export interface GenresGetMovieListResponse {
-    genres: GenresGetMovieListGenre[];
+  genres: GenresGetMovieListGenre[];
 }
 
 export interface GenresGetMovieListGenre {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }
 
 export interface GenresGetMovieListParams {
-    language?: string;
+  language?: string;
 }

@@ -1,9 +1,9 @@
 export interface TVGetKeywordsResponse {
-    id: number;
-    results: TVGetKeywordsResult[];
+  id: number;
+  results: TVGetKeywordsResult[];
 }
 
 export interface TVGetKeywordsResult {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }
