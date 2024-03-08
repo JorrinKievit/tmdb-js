@@ -1,20 +1,20 @@
 export interface TVSeasonsGetAccountStatesResponse {
-  id: number;
-  results: TVSeasonsGetAccountStatesResult[];
+    id: number;
+    results: TVSeasonsGetAccountStatesResult[];
 }
 
 export interface TVSeasonsGetAccountStatesResult {
-  id: number;
-  episode_number: number;
-  rated: boolean | TVSeasonsGetAccountStatesRatedClass;
+    id: number;
+    episode_number: number;
+    rated: boolean | TVSeasonsGetAccountStatesRatedClass;
 }
 
 export interface TVSeasonsGetAccountStatesRatedClass {
-  value: number;
+    value: number;
 }
 
 export interface TVSeasonsGetAccountStatesParams {
-  language?: string;
-  guest_session_id?: string;
-  session_id?: string;
+    language?: string;
+    guest_session_id?: string;
+    session_id?: string;
 }

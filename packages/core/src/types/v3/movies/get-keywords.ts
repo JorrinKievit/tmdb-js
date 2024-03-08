@@ -1,9 +1,9 @@
 export interface MoviesGetKeywordsResponse {
-  id: number;
-  keywords: MoviesGetKeywordsKeyword[];
+    id: number;
+    keywords: MoviesGetKeywordsKeyword[];
 }
 
 export interface MoviesGetKeywordsKeyword {
-  id: number;
-  name: string;
+    id: number;
+    name: string;
 }

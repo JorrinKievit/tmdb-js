@@ -1,35 +1,41 @@
 export interface PeoplePersonCredit {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-  credit_id: string;
+    adult: boolean;
+    backdrop_path: string;
+    genre_ids: number[];
+    id: number;
+    original_language: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    vote_average: number;
+    vote_count: number;
+    credit_id: string;
 }
+
 interface PeopleCastAndCrewGetCombinedGetTvCredit extends PeoplePersonCredit {
-  original_title: string;
-  release_date: string;
-  title: string;
-  video: boolean;
+    original_title: string;
+    release_date: string;
+    title: string;
+    video: boolean;
 }
+
 interface PeopleCastCreditSpecificFields {
-  character: string;
+    character: string;
 }
+
 interface PeopleCrewCreditSpecificFields {
-  job: string;
-  department: string;
+    job: string;
+    department: string;
 }
 
 export interface PeopleBaseCastGetMovieGetCombinedCredit extends PeopleCastAndCrewGetCombinedGetTvCredit, PeoplePersonCredit, PeopleCastCreditSpecificFields {
-  order: number;
+    order: number;
 }
 
-export type PeopleBaseCrewGetMovieGetCombinedCredit = PeopleCastAndCrewGetCombinedGetTvCredit & PeoplePersonCredit & PeopleCrewCreditSpecificFields;
+export type PeopleBaseCrewGetMovieGetCombinedCredit =
+    PeopleCastAndCrewGetCombinedGetTvCredit
+    & PeoplePersonCredit
+    & PeopleCrewCreditSpecificFields;
 
 export type PeopleBaseCastGetTvCredit = PeoplePersonCredit & { character: string };
 export type PeopleBaseCrewGetTvCredit = PeoplePersonCredit & PeopleCrewCreditSpecificFields;
