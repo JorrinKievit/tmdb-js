@@ -1,5 +1,11 @@
 # tmdb-js-web
 
+## 1.1.10
+
+### Patch Changes
+
+- a7d1476: Fix backdrop_path typings
+
 ## 1.1.9
 
 ### Patch Changes
