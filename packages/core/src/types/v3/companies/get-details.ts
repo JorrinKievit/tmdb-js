@@ -6,5 +6,5 @@ export interface CompaniesGetDetailsResponse {
   logo_path: string;
   name: string;
   origin_country: string;
-  parent_company: null;
+  parent_company: null | string;
 }

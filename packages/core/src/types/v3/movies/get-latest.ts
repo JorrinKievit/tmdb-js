@@ -2,7 +2,7 @@ import { BelongsToConnection } from "./shared";
 
 export interface MoviesGetLatestResponse {
   adult: boolean;
-  backdrop_path: null;
+  backdrop_path: null | string;
   belongs_to_collection: BelongsToConnection | null;
   budget: number;
   genres: MoviesGetLatestGenre[];

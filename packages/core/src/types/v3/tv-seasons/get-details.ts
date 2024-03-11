@@ -1,4 +1,5 @@
 import { AppendToResponseType, TVSeasonsAppendToResponse } from "../../append-to-response";
+
 export interface TVSeasonsGetDetailsBaseResponse {
   _id: string;
   air_date: string;

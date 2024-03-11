@@ -6,10 +6,10 @@ export interface V4AccountGetFavoriteTVShowsResponse {
 }
 
 export interface V4AccountGetFavoriteTVShowsResult {
-  poster_path: null;
+  poster_path: null | string;
   popularity: number;
   id: number;
-  backdrop_path: null;
+  backdrop_path: null | string;
   vote_average: number;
   overview: string;
   first_air_date: string;

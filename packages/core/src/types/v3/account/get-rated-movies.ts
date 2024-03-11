@@ -7,14 +7,14 @@ export interface AccountGetRatedMoviesResponse {
 
 export interface AccountGetRatedMoviesResult {
   adult: boolean;
-  backdrop_path: null;
+  backdrop_path: null | string;
   genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
   overview: string;
   release_date: string;
-  poster_path: null;
+  poster_path: null | string;
   popularity: number;
   title: string;
   video: boolean;

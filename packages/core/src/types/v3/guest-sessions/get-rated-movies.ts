@@ -14,7 +14,7 @@ export interface GuestSessionsGetRatedMoviesResult {
   original_title: string;
   overview: string;
   release_date: string;
-  poster_path: null;
+  poster_path: null | string;
   popularity: number;
   title: string;
   video: boolean;

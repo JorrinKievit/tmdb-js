@@ -6,7 +6,7 @@ export interface AccountGetFavoriteTVShowsResponse {
 }
 
 export interface AccountGetFavoriteTVShowsResult {
-  backdrop_path: null;
+  backdrop_path: null | string;
   first_air_date: string;
   genre_ids: number[];
   id: number;
@@ -14,7 +14,7 @@ export interface AccountGetFavoriteTVShowsResult {
   original_name: string;
   overview: string;
   origin_country: string[];
-  poster_path: null;
+  poster_path: null | string;
   popularity: number;
   name: string;
   vote_average: number;

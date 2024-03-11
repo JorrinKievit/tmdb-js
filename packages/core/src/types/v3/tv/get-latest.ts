@@ -1,5 +1,5 @@
 export interface TVGetLatestResponse {
-  backdrop_path: null;
+  backdrop_path: null | string;
   created_by: unknown[];
   episode_run_time: number[];
   first_air_date: string;
@@ -16,9 +16,9 @@ export interface TVGetLatestResponse {
   origin_country: string[];
   original_language: string;
   original_name: string;
-  overview: null;
+  overview: null | string;
   popularity: number;
-  poster_path: null;
+  poster_path: null | string;
   production_companies: unknown[];
   seasons: TVGetLatestSeason[];
   status: string;
@@ -36,7 +36,7 @@ export interface TVGetLatestSeason {
   air_date: string;
   episode_count: number;
   id: number;
-  poster_path: null;
+  poster_path: null | string;
   season_number: number;
 }
 

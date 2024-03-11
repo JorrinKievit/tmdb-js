@@ -8,6 +8,7 @@ export interface PeopleGetMovieCreditsResponse {
 
 export type PeopleGetMovieCreditsCast = PeopleBaseCastGetMovieGetCombinedCredit;
 export type PeopleGetMovieCreditsCrew = PeopleBaseCrewGetMovieGetCombinedCredit;
+
 export interface PeopleGetMovieCreditsParams {
   language?: string;
 }

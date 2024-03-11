@@ -2,14 +2,14 @@ export interface CollectionsGetDetailsResponse {
   id: number;
   name: string;
   overview: string;
-  poster_path: null;
+  poster_path: null | string;
   backdrop_path: string;
   parts: CollectionsGetDetailsPart[];
 }
 
 export interface CollectionsGetDetailsPart {
   adult: boolean;
-  backdrop_path: null;
+  backdrop_path: null | string;
   id: number;
   title: string;
   original_language: string;

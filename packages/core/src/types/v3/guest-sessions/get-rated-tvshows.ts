@@ -10,7 +10,7 @@ export interface GuestSessionsGetRatedTVShowsResult {
   first_air_date: string;
   genre_ids: number[];
   id: number;
-  original_language: null;
+  original_language: null | string;
   original_name: string;
   overview: string;
   origin_country: string[];

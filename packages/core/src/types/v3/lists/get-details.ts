@@ -21,7 +21,7 @@ export interface ListsGetDetailsItem {
   media_type: string;
   original_language: string;
   title: string;
-  backdrop_path: null;
+  backdrop_path: null | string;
   popularity: number;
   vote_count: number;
   video: boolean;

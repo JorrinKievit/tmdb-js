@@ -13,6 +13,7 @@ export interface PeopleGetTvCreditsPerson {
   name: string;
   episode_count: number;
 }
+
 export type PeopleGetTvCreditsCast = PeopleGetTvCreditsPerson & PeopleBaseCastGetTvCredit;
 export type PeopleGetTvCreditsCrew = PeopleGetTvCreditsPerson & PeopleBaseCrewGetTvCredit;
 

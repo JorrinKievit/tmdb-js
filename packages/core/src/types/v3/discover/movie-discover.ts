@@ -6,7 +6,7 @@ export interface DiscoverMovieDiscoverResponse {
 }
 
 export interface DiscoverMovieDiscoverResult {
-  poster_path: null;
+  poster_path: null | string;
   adult: boolean;
   overview: string;
   release_date: string;
@@ -15,7 +15,7 @@ export interface DiscoverMovieDiscoverResult {
   original_title: string;
   original_language: string;
   title: string;
-  backdrop_path: null;
+  backdrop_path: null | string;
   popularity: number;
   vote_count: number;
   video: boolean;

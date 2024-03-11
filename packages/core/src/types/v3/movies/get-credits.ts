@@ -11,6 +11,7 @@ export interface MoviesGetCreditsCast extends BaseCastCredit {
 }
 
 export type MoviesGetCreditsCrew = BaseCrewCredit;
+
 export interface MoviesGetCreditsParams {
   language?: string;
 }

@@ -8,7 +8,7 @@ export interface KeywordsGetMoviesResponse {
 
 export interface KeywordsGetMoviesResult {
   adult: boolean;
-  backdrop_path: null;
+  backdrop_path: null | string;
   genre_ids: number[];
   id: number;
   original_language: string;

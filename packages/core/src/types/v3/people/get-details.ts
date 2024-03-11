@@ -3,7 +3,7 @@ import { AppendToResponseType, PeopleAppendToResponse } from "../../append-to-re
 export interface PeopleGetDetailsBaseResponse {
   birthday: string;
   known_for_department: string;
-  deathday: null;
+  deathday: string | null;
   id: number;
   name: string;
   also_known_as: string[];
@@ -14,7 +14,7 @@ export interface PeopleGetDetailsBaseResponse {
   profile_path: string;
   adult: boolean;
   imdb_id: string;
-  homepage: null;
+  homepage: string | null;
 }
 
 export interface PeopleGetDetailsParams<T extends PeopleAppendToResponse[]> {

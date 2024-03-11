@@ -9,7 +9,7 @@ export interface DiscoverTVDiscoverResult {
   poster_path: string;
   popularity: number;
   id: number;
-  backdrop_path: null;
+  backdrop_path: null | string;
   vote_average: number;
   overview: string;
   first_air_date: string;

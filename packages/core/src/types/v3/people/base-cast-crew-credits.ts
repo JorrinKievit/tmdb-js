@@ -11,15 +11,18 @@ export interface PeoplePersonCredit {
   vote_count: number;
   credit_id: string;
 }
+
 interface PeopleCastAndCrewGetCombinedGetTvCredit extends PeoplePersonCredit {
   original_title: string;
   release_date: string;
   title: string;
   video: boolean;
 }
+
 interface PeopleCastCreditSpecificFields {
   character: string;
 }
+
 interface PeopleCrewCreditSpecificFields {
   job: string;
   department: string;

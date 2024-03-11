@@ -8,6 +8,7 @@ export interface TVGetCreditsResponse {
 
 export type TVGetCreditsCast = BaseCastCredit;
 export type TVGetCreditsCrew = BaseCrewCredit;
+
 export interface TVGetCreditsParams {
   language?: string;
 }

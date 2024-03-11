@@ -23,7 +23,7 @@ export interface TVEpisodeGroupsGetDetailsEpisode {
   id: number;
   name: string;
   overview: string;
-  production_code: null;
+  production_code: null | string;
   season_number: number;
   show_id: number;
   still_path: null | string;

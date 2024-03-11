@@ -26,4 +26,5 @@ export interface SearchMultiSearchResult {
   profile_path?: null | string;
   known_for?: SearchMultiSearchResult[];
 }
+
 export type SearchMultiSearchParams = SearchQueryParams;

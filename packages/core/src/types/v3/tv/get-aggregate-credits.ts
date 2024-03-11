@@ -5,11 +5,14 @@ export interface TVGetAggregateCreditsResponse {
   crew: TVGetAggregateCreditsCrew[];
   id: number;
 }
+
 export interface TvGetAggregateCreditsRole {
   credit_id: string;
   episode_count: number;
 }
+
 type BaseAggregateCredits = Omit<BasePersonCredit, "credit_id"> & { total_episode_count: number };
+
 export interface TVGetAggregateCreditsCast extends BaseAggregateCredits {
   roles: (TvGetAggregateCreditsRole & { character: string })[];
   order: number;

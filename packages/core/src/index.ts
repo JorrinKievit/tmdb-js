@@ -629,8 +629,11 @@ export interface ITMDBAPI {
 
 export interface Http {
   get<TResponse>(url: string, accessToken?: string): Promise<TResponse>;
+
   post<TResponse, TBody = undefined>(url: string, body?: TBody, accessToken?: string): Promise<TResponse>;
+
   put<TResponse, TBody>(url: string, body: TBody, accessToken?: string): Promise<TResponse>;
+
   delete<TResponse, TBody = undefined>(url: string, body?: TBody, accessToken?: string): Promise<TResponse>;
 }
 

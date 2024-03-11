@@ -72,6 +72,7 @@ export type MoviesAppendToResponse =
   | "translations"
   | "videos"
   | "watch_providers";
+
 export interface MoviesAppendToResponseTypes {
   account_states: MoviesGetAccountStatesResponse;
   alternative_titles: MoviesGetAlternativeTitlesResponse;
@@ -92,6 +93,7 @@ export interface MoviesAppendToResponseTypes {
 }
 
 export type PeopleAppendToResponse = "changes" | "combined_credits" | "external_ids" | "images" | "latest" | "movie_credits" | "tv_credits" | "translations";
+
 export interface PeopleAppendToResponseTypes {
   changes: PeopleGetChangesResponse;
   combined_credits: PeopleGetCombinedCreditsResponse;
@@ -121,6 +123,7 @@ export type TVAppendToResponse =
   | "similar"
   | "translations"
   | "videos";
+
 export interface TVAppendToResponseTypes {
   account_states: TVGetAccountStatesResponse;
   aggregate_credits: TVGetAggregateCreditsResponse;
@@ -143,6 +146,7 @@ export interface TVAppendToResponseTypes {
 }
 
 export type TVSeasonsAppendToResponse = "account_states" | "aggregate_credits" | "changes" | "credits" | "external_ids" | "images" | "translations" | "videos" | "watch_providers";
+
 export interface TVSeasonsAppendToResponseTypes {
   account_states: TVSeasonsGetAccountStatesResponse;
   aggregate_credits: TVSeasonsGetAggregateCreditsResponse;
@@ -156,6 +160,7 @@ export interface TVSeasonsAppendToResponseTypes {
 }
 
 export type TVEpisodesAppendToResponse = "account_states" | "changes" | "credits" | "external_ids" | "images" | "translations" | "videos";
+
 export interface TVEpisodesAppendToResponseTypes {
   account_states: TVEpisodesGetAccountStatesResponse;
   changes: TVEpisodesGetChangesResponse;

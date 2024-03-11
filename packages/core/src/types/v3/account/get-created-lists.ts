@@ -13,7 +13,7 @@ export interface Result {
   iso_639_1: string;
   list_type: string;
   name: string;
-  poster_path: null;
+  poster_path: null | string;
 }
 
 export interface AccountGetCreatedListsParams {
