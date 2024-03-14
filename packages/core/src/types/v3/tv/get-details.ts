@@ -1,6 +1,7 @@
 import { AppendToResponseType, TVAppendToResponse } from "../../append-to-response";
 
 export interface TVGetDetailsBaseResponse {
+  adult: boolean;
   backdrop_path: string;
   created_by: TVGetDetailsCreatedBy[];
   episode_run_time: number[];

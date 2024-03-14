@@ -1,6 +1,7 @@
 import { AppendToResponseType, PeopleAppendToResponse } from "../../append-to-response";
 
 export interface PeopleGetDetailsBaseResponse {
+
   birthday: string;
   known_for_department: string;
   deathday: string | null;
