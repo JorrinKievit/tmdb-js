@@ -9,3 +9,4 @@ export * from "./get-popular";
 export * from "./get-tagged-images";
 export * from "./get-translations";
 export * from "./get-tv-credits";
+export type { PeopleGetTvCreditsPerson } from "./base-cast-crew-credits";

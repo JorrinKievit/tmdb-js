@@ -1,4 +1,4 @@
-import { PeopleBaseCastGetMovieGetCombinedCredit, PeopleBaseCrewGetMovieGetCombinedCredit } from "./base-cast-crew-credits";
+import { PeopleBaseCastGetMovieCredit, PeopleBaseCrewGetMovieCredit } from "./base-cast-crew-credits";
 
 export interface PeopleGetMovieCreditsResponse {
   cast: PeopleGetMovieCreditsCast[];
@@ -6,8 +6,8 @@ export interface PeopleGetMovieCreditsResponse {
   id: number;
 }
 
-export type PeopleGetMovieCreditsCast = PeopleBaseCastGetMovieGetCombinedCredit;
-export type PeopleGetMovieCreditsCrew = PeopleBaseCrewGetMovieGetCombinedCredit;
+export type PeopleGetMovieCreditsCast = PeopleBaseCastGetMovieCredit & { original_title: string };
+export type PeopleGetMovieCreditsCrew = PeopleBaseCrewGetMovieCredit & { original_title: string };
 
 export interface PeopleGetMovieCreditsParams {
   language?: string;

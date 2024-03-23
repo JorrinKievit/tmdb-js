@@ -12,8 +12,7 @@ export interface PeoplePersonCredit {
   credit_id: string;
 }
 
-interface PeopleCastAndCrewGetCombinedGetTvCredit extends PeoplePersonCredit {
-  original_title: string;
+interface PeopleCastAndCrewGetCombinedGetMovieCredit extends PeoplePersonCredit {
   release_date: string;
   title: string;
   video: boolean;
@@ -28,11 +27,19 @@ interface PeopleCrewCreditSpecificFields {
   department: string;
 }
 
-export interface PeopleBaseCastGetMovieGetCombinedCredit extends PeopleCastAndCrewGetCombinedGetTvCredit, PeoplePersonCredit, PeopleCastCreditSpecificFields {
+export interface PeopleBaseCastGetMovieCredit extends PeopleCastAndCrewGetCombinedGetMovieCredit, PeopleCastCreditSpecificFields {
   order: number;
 }
 
-export type PeopleBaseCrewGetMovieGetCombinedCredit = PeopleCastAndCrewGetCombinedGetTvCredit & PeoplePersonCredit & PeopleCrewCreditSpecificFields;
+export type PeopleBaseCrewGetMovieCredit = PeopleCastAndCrewGetCombinedGetMovieCredit & PeopleCrewCreditSpecificFields;
 
 export type PeopleBaseCastGetTvCredit = PeoplePersonCredit & { character: string };
 export type PeopleBaseCrewGetTvCredit = PeoplePersonCredit & PeopleCrewCreditSpecificFields;
+
+export interface PeopleGetTvCreditsPerson {
+  origin_country: string[];
+  original_name: string;
+  first_air_date: string;
+  name: string;
+  episode_count: number;
+}

@@ -177,22 +177,22 @@ type ResponseTypeFor<T, U> = U extends "movie"
     ? MoviesAppendToResponseTypes[T]
     : never
   : U extends "tv"
-    ? T extends keyof TVAppendToResponseTypes
-      ? TVAppendToResponseTypes[T]
-      : never
-    : U extends "people"
-      ? T extends keyof PeopleAppendToResponseTypes
-        ? PeopleAppendToResponseTypes[T]
-        : never
-      : U extends "tv_seasons"
-        ? T extends keyof TVSeasonsAppendToResponseTypes
-          ? TVSeasonsAppendToResponseTypes[T]
-          : never
-        : U extends "tv_episodes"
-          ? T extends keyof TVEpisodesAppendToResponseTypes
-            ? TVEpisodesAppendToResponseTypes[T]
-            : never
-          : never;
+  ? T extends keyof TVAppendToResponseTypes
+    ? TVAppendToResponseTypes[T]
+    : never
+  : U extends "people"
+  ? T extends keyof PeopleAppendToResponseTypes
+    ? PeopleAppendToResponseTypes[T]
+    : never
+  : U extends "tv_seasons"
+  ? T extends keyof TVSeasonsAppendToResponseTypes
+    ? TVSeasonsAppendToResponseTypes[T]
+    : never
+  : U extends "tv_episodes"
+  ? T extends keyof TVEpisodesAppendToResponseTypes
+    ? TVEpisodesAppendToResponseTypes[T]
+    : never
+  : never;
 
 type ExtractValidKeys<T> = T extends (infer U)[] ? U : never;
 
