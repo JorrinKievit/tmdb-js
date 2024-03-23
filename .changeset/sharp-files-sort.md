@@ -11,4 +11,4 @@ on the combined credits response type. TvGetDetailsBaseResponse was missing the 
 
 Result: "original_title" is now an optional field so anywhere you use the combined credits type, or made a call to people get combined credits you will now need to confirm original_title is not undefined
 before working with it. Combined credits now can return addtional optional fields. This change applies to both the cast and crew credits for the people endpoint. TvGetDetailsBaseResponse now returns
-an addtional "adult" field that has a boolean value.
+an addtional "adult" field that has a boolean value, so any function or location that requires this type now needs to have the adult field passed in as well
