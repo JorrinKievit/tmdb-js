@@ -1,5 +1,16 @@
 # tmdb-js-node
 
+## 1.2.0
+
+### Minor Changes
+
+- 0c20bfb: - Add "adult" field to TvGetDetailsBaseResponse
+
+  - Removed "original_title" from person credits
+  - Credit fields are now optional
+
+  Thanks to @newmoneybigbucks!
+
 ## 1.1.10
 
 ### Patch Changes
