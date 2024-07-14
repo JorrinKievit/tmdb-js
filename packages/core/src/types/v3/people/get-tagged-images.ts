@@ -17,7 +17,7 @@ export interface PeopleGetTaggedImagesResult {
   width: number;
   image_type: string;
   media: PeopleGetTaggedImagesMedia;
-  media_type: string;
+  media_type: "movie" | "tv";
 }
 
 export interface PeopleGetTaggedImagesMedia {
