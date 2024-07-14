@@ -1,4 +1,4 @@
-import { Http, ITMDBAPI, TVAppendToResponse } from "..";
+import { Credentials, Http, ITMDBAPI, TVAppendToResponse } from "..";
 import { TVDeleteRatingResponse } from "../types/v3/tv/delete-rating";
 import { TVGetAccountStatesResponse } from "../types/v3/tv/get-account-states";
 import { TVGetAggregateCreditsResponse } from "../types/v3/tv/get-aggregate-credits";
@@ -26,132 +26,82 @@ import { TVGetWatchProvidersResponse } from "../types/v3/tv/get-watch-providers"
 import { TVRateTVShowsResponse } from "../types/v3/tv/rate-tvshows";
 import { buildV3Url } from "../utils/api";
 
-export const createV3TvMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["tv"] => {
+export const createV3TvMethods = (client: Http, url: string, { apiKey, accessToken }: Credentials): ITMDBAPI["v3"]["tv"] => {
   return {
     getDetails: async <T extends TVAppendToResponse[]>(tvId: number, params?: TVGetDetailsParams<T>) => {
-      const res = await client.get<TVGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}tv/${tvId}`, params));
-
-      return res;
+      return client.get<TVGetDetailsResponse<T>>(buildV3Url(`${url}tv/${tvId}`, apiKey, params), accessToken);
     },
     getAccountStates: async (tvId, params) => {
-      const res = await client.get<TVGetAccountStatesResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/account_states`, params));
-
-      return res;
+      return client.get<TVGetAccountStatesResponse>(buildV3Url(`${url}tv/${tvId}/account_states`, apiKey, params), accessToken);
     },
     getAggregateCredits: async (tvId, params) => {
-      const res = await client.get<TVGetAggregateCreditsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/aggregate_credits`, params));
-
-      return res;
+      return client.get<TVGetAggregateCreditsResponse>(buildV3Url(`${url}tv/${tvId}/aggregate_credits`, apiKey, params), accessToken);
     },
     getAlternativeTitles: async (tvId, params) => {
-      const res = await client.get<TVGetAlternativeTitlesResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/alternative_titles`, params));
-
-      return res;
+      return client.get<TVGetAlternativeTitlesResponse>(buildV3Url(`${url}tv/${tvId}/alternative_titles`, apiKey, params), accessToken);
     },
     getChanges: async (tvId, params) => {
-      const res = await client.get<TVGetChangesResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/changes`, params));
-
-      return res;
+      return client.get<TVGetChangesResponse>(buildV3Url(`${url}tv/${tvId}/changes`, apiKey, params), accessToken);
     },
     getContentRatings: async (tvId, params) => {
-      const res = await client.get<TVGetContentRatingsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/content_ratings`, params));
-
-      return res;
+      return client.get<TVGetContentRatingsResponse>(buildV3Url(`${url}tv/${tvId}/content_ratings`, apiKey, params), accessToken);
     },
     getCredits: async (tvId, params) => {
-      const res = await client.get<TVGetCreditsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/credits`, params));
-
-      return res;
+      return client.get<TVGetCreditsResponse>(buildV3Url(`${url}tv/${tvId}/credits`, apiKey, params), accessToken);
     },
     getEpisodeGroups: async (tvId, params) => {
-      const res = await client.get<TVGetEpisodeGroupsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/episode_groups`, params));
-
-      return res;
+      return client.get<TVGetEpisodeGroupsResponse>(buildV3Url(`${url}tv/${tvId}/episode_groups`, apiKey, params), accessToken);
     },
     getExternalIds: async (tvId, params) => {
-      const res = await client.get<TVGetExternalIdsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/external_ids`, params));
-
-      return res;
+      return client.get<TVGetExternalIdsResponse>(buildV3Url(`${url}tv/${tvId}/external_ids`, apiKey, params), accessToken);
     },
     getImages: async (tvId, params) => {
-      const res = await client.get<TVGetImagesResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/images`, params));
-
-      return res;
+      return client.get<TVGetImagesResponse>(buildV3Url(`${url}tv/${tvId}/images`, apiKey, params), accessToken);
     },
     getKeywords: async (tvId) => {
-      const res = await client.get<TVGetKeywordsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/keywords`));
-
-      return res;
+      return client.get<TVGetKeywordsResponse>(buildV3Url(`${url}tv/${tvId}/keywords`, apiKey), accessToken);
     },
     getRecommendations: async (tvId, params) => {
-      const res = await client.get<TVGetRecommendationsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/recommendations`, params));
-
-      return res;
+      return client.get<TVGetRecommendationsResponse>(buildV3Url(`${url}tv/${tvId}/recommendations`, apiKey, params), accessToken);
     },
     getReviews: async (tvId, params) => {
-      const res = await client.get<TVGetReviewsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/reviews`, params));
-
-      return res;
+      return client.get<TVGetReviewsResponse>(buildV3Url(`${url}tv/${tvId}/reviews`, apiKey, params), accessToken);
     },
     getScreenedTheatrically: async (tvId, params) => {
-      const res = await client.get<TVGetScreenedTheatricallyResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/screened_theatrically`, params));
-
-      return res;
+      return client.get<TVGetScreenedTheatricallyResponse>(buildV3Url(`${url}tv/${tvId}/screened_theatrically`, apiKey, params), accessToken);
     },
     getSimilarTVShows: async (tvId, params) => {
-      const res = await client.get<TVGetSimilarTVShowsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/similar`, params));
-
-      return res;
+      return client.get<TVGetSimilarTVShowsResponse>(buildV3Url(`${url}tv/${tvId}/similar`, apiKey, params), accessToken);
     },
     getTranslations: async (tvId) => {
-      const res = await client.get<TVGetTranslationsResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/translations`));
-
-      return res;
+      return client.get<TVGetTranslationsResponse>(buildV3Url(`${url}tv/${tvId}/translations`, apiKey), accessToken);
     },
     getVideos: async (tvId, params) => {
-      const res = await client.get<TVGetVideosResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/videos`, params));
-
-      return res;
+      return client.get<TVGetVideosResponse>(buildV3Url(`${url}tv/${tvId}/videos`, apiKey, params), accessToken);
     },
     getWatchProviders: async (tvId) => {
-      const res = await client.get<TVGetWatchProvidersResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/watch/providers`));
-
-      return res;
+      return client.get<TVGetWatchProvidersResponse>(buildV3Url(`${url}tv/${tvId}/watch/providers`, apiKey), accessToken);
     },
     rateTVShow: async (tvId, body, params) => {
-      const res = await client.post<TVRateTVShowsResponse, typeof body>(buildV3Url(apiKey, `${url}tv/${tvId}/rating`, params), body);
-
-      return res;
+      return client.post<TVRateTVShowsResponse, typeof body>(buildV3Url(`${url}tv/${tvId}/rating`, apiKey, params), body, accessToken);
     },
     deleteRating: async (tvId, params) => {
-      const res = await client.delete<TVDeleteRatingResponse>(buildV3Url(apiKey, `${url}tv/${tvId}/rating`, params));
-
-      return res;
+      return client.delete<TVDeleteRatingResponse>(buildV3Url(`${url}tv/${tvId}/rating`, apiKey, params), undefined, accessToken);
     },
     getLatest: async (params) => {
-      const res = await client.get<TVGetLatestResponse>(buildV3Url(apiKey, `${url}tv/latest`, params));
-
-      return res;
+      return client.get<TVGetLatestResponse>(buildV3Url(`${url}tv/latest`, apiKey, params), accessToken);
     },
     getTVAiringToday: async (params) => {
-      const res = await client.get<TVGetTVAiringTodayResponse>(buildV3Url(apiKey, `${url}tv/airing_today`, params));
-
-      return res;
+      return client.get<TVGetTVAiringTodayResponse>(buildV3Url(`${url}tv/airing_today`, apiKey, params), accessToken);
     },
     getTVOnTheAir: async (params) => {
-      const res = await client.get<TVGetTVOnTheAirResponse>(buildV3Url(apiKey, `${url}tv/on_the_air`, params));
-
-      return res;
+      return client.get<TVGetTVOnTheAirResponse>(buildV3Url(`${url}tv/on_the_air`, apiKey, params), accessToken);
     },
     getPopular: async (params) => {
-      const res = await client.get<TVGetPopularResponse>(buildV3Url(apiKey, `${url}tv/popular`, params));
-
-      return res;
+      return client.get<TVGetPopularResponse>(buildV3Url(`${url}tv/popular`, apiKey, params), accessToken);
     },
     getTopRated: async (params) => {
-      const res = await client.get<TVGetTopRatedResponse>(buildV3Url(apiKey, `${url}tv/top_rated`, params));
-
-      return res;
+      return client.get<TVGetTopRatedResponse>(buildV3Url(`${url}tv/top_rated`, apiKey, params), accessToken);
     },
   };
 };

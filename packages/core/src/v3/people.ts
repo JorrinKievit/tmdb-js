@@ -1,4 +1,4 @@
-import { Http, ITMDBAPI, PeopleAppendToResponse } from "..";
+import { Credentials, Http, ITMDBAPI, PeopleAppendToResponse } from "..";
 import { PeopleGetChangesResponse } from "../types/v3/people/get-changes";
 import { PeopleGetCombinedCreditsResponse } from "../types/v3/people/get-combined-credits";
 import { PeopleGetDetailsParams, PeopleGetDetailsResponse } from "../types/v3/people/get-details";
@@ -12,62 +12,40 @@ import { PeopleGetTranslationsResponse } from "../types/v3/people/get-translatio
 import { PeopleGetTvCreditsResponse } from "../types/v3/people/get-tv-credits";
 import { buildV3Url } from "../utils/api";
 
-export const createV3PeopleMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["people"] => {
+export const createV3PeopleMethods = (client: Http, url: string, { apiKey, accessToken }: Credentials): ITMDBAPI["v3"]["people"] => {
   return {
     getDetails: async <T extends PeopleAppendToResponse[]>(personId: number, params?: PeopleGetDetailsParams<T>) => {
-      const res = await client.get<PeopleGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}person/${personId}`, params));
-
-      return res;
+      return client.get<PeopleGetDetailsResponse<T>>(buildV3Url(`${url}person/${personId}`, apiKey, params), accessToken);
     },
     getChanges: async (personId, params) => {
-      const res = await client.get<PeopleGetChangesResponse>(buildV3Url(apiKey, `${url}person/${personId}/changes`, params));
-
-      return res;
+      return client.get<PeopleGetChangesResponse>(buildV3Url(`${url}person/${personId}/changes`, apiKey, params), accessToken);
     },
     getMovieCredits: async (personId, params) => {
-      const res = await client.get<PeopleGetMovieCreditsResponse>(buildV3Url(apiKey, `${url}person/${personId}/movie_credits`, params));
-
-      return res;
+      return client.get<PeopleGetMovieCreditsResponse>(buildV3Url(`${url}person/${personId}/movie_credits`, apiKey, params), accessToken);
     },
     getTVCredits: async (personId, params) => {
-      const res = await client.get<PeopleGetTvCreditsResponse>(buildV3Url(apiKey, `${url}person/${personId}/tv_credits`, params));
-
-      return res;
+      return client.get<PeopleGetTvCreditsResponse>(buildV3Url(`${url}person/${personId}/tv_credits`, apiKey, params), accessToken);
     },
     getCombinedCredits: async (personId, params) => {
-      const res = await client.get<PeopleGetCombinedCreditsResponse>(buildV3Url(apiKey, `${url}person/${personId}/combined_credits`, params));
-
-      return res;
+      return client.get<PeopleGetCombinedCreditsResponse>(buildV3Url(`${url}person/${personId}/combined_credits`, apiKey, params), accessToken);
     },
     getExternalIds: async (personId) => {
-      const res = await client.get<PeopleGetExternalIdsResponse>(buildV3Url(apiKey, `${url}person/${personId}/external_ids`));
-
-      return res;
+      return client.get<PeopleGetExternalIdsResponse>(buildV3Url(`${url}person/${personId}/external_ids`, apiKey), accessToken);
     },
     getImages: async (personId) => {
-      const res = await client.get<PeopleGetImagesResponse>(buildV3Url(apiKey, `${url}person/${personId}/images`));
-
-      return res;
+      return client.get<PeopleGetImagesResponse>(buildV3Url(`${url}person/${personId}/images`, apiKey), accessToken);
     },
     getTaggedImages: async (personId, params) => {
-      const res = await client.get<PeopleGetTaggedImagesResponse>(buildV3Url(apiKey, `${url}person/${personId}/tagged_images`, params));
-
-      return res;
+      return client.get<PeopleGetTaggedImagesResponse>(buildV3Url(`${url}person/${personId}/tagged_images`, apiKey, params), accessToken);
     },
     getTranslations: async (personId, params) => {
-      const res = await client.get<PeopleGetTranslationsResponse>(buildV3Url(apiKey, `${url}person/${personId}/translations`, params));
-
-      return res;
+      return client.get<PeopleGetTranslationsResponse>(buildV3Url(`${url}person/${personId}/translations`, apiKey, params), accessToken);
     },
     getLatest: async (params) => {
-      const res = await client.get<PeopleGetLatestResponse>(buildV3Url(apiKey, `${url}person/latest`, params));
-
-      return res;
+      return client.get<PeopleGetLatestResponse>(buildV3Url(`${url}person/latest`, apiKey, params), accessToken);
     },
     getPopular: async (params) => {
-      const res = await client.get<PeopleGetPopularResponse>(buildV3Url(apiKey, `${url}person/popular`, params));
-
-      return res;
+      return client.get<PeopleGetPopularResponse>(buildV3Url(`${url}person/popular`, apiKey, params), accessToken);
     },
   };
 };
