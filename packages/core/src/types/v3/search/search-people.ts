@@ -23,7 +23,7 @@ export interface SearchPeopleKnownFor {
   original_title?: string;
   genre_ids: number[];
   id: number;
-  media_type: string;
+  media_type: "movie" | "tv";
   original_language: string;
   title?: string;
   backdrop_path: null | string;

@@ -3,7 +3,7 @@ export interface CreditsGetDetailsResponse {
   department: string;
   job: string;
   media: CreditsGetDetailsMedia;
-  media_type: string;
+  media_type: "movie" | "tv";
   id: string;
   person: CreditsGetDetailsPerson;
 }

@@ -6,7 +6,7 @@ export interface V4ListAddItemsResponse {
 }
 
 export interface V4ListAddItemsResult {
-  media_type: string;
+  media_type: "movie" | "tv";
   media_id: number;
   success: boolean;
 }
@@ -16,6 +16,6 @@ export interface V4ListAddItemsBody {
 }
 
 export interface V4ListAddItemsItem {
-  media_type: string;
+  media_type: "movie" | "tv";
   media_id: number;
 }
