@@ -12,18 +12,16 @@ npm install tmdb-js-web
 
 ## Getting started
 
-The library supports the v3 and v4 version of the TMDB API. To use the library, you first need to obtain an API key from the TMDB website. You can then create an instance of the TMDBAPI class and pass your API key to it:
+The library supports the v3 and v4 version of the TMDB API. To use the library, you first need to obtain an API key from the TMDB website. You can then create an instance of the TMDBAPI class and pass your API key to it.
+
+Note that for the V4 version of the API you are required to use the access token. For V3 you can use the API key or the access token.
 
 ```
 import { TMDBWebApi } from "tmdb-js-web";
-const api = new TMDBWebAPI("your_api_key");
-```
-
-If you would like to also use the v4 API:
-
-```
-import { TMDBWebApi } from "tmdb-js-web";
-const api = new TMDBWebAPI("your_api_key", "<your_access_token>");
+const api = new TMDBWebAPI({
+  apiKey: "",
+  accessToken: "",
+});
 ```
 
 You can then call any of the methods available on the api instance, which correspond to the various API endpoints. For example, multisearch:
@@ -31,24 +29,14 @@ You can then call any of the methods available on the api instance, which corres
 ```
 import { TMDBWebAPI } from "tmdb-js-web";
 
-const api = new TMDBWebAPI("your_api_key");
+const api = new TMDBWebAPI({
+  apiKey: "",
+  accessToken: "",
+});
 
-api.v3.search
-  .searchMulti({
-    query: "Star wars",
-  })
-  .then((data) => {
-    console.log(data);
-  });
-```
-
-Or using async/await:
-
-```
 const response = await api.v3.search.searchMulti({
     query: "Star wars"
 })
-console.log(response);
 ```
 
 ## API endpoints
