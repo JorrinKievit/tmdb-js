@@ -702,7 +702,7 @@ export default class TMDBAPI implements ITMDBAPI {
     this.v4 = createV4Methods(this.client, this.v4Url, this.accessToken);
   }
 
-  constructor(client: Http, { apiKey, accessToken }: { apiKey?: string; accessToken?: string }) {
+  constructor(client: Http, { apiKey, accessToken }: Credentials) {
     if (!apiKey && !accessToken) {
       throw new Error("Either apiKey or accessToken must be provided");
     }

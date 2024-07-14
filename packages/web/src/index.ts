@@ -1,4 +1,4 @@
-import TMDBAPI, { Http, TMDBApiError, ITMDBAPI } from "../../core";
+import TMDBAPI, { Http, TMDBApiError, ITMDBAPI, Credentials } from "../../core";
 
 export * from "../../core";
 
@@ -73,7 +73,7 @@ const client: Http = {
 };
 
 export class TMDBWebAPI extends TMDBAPI implements ITMDBAPI {
-  constructor(apiKey: string, accessToken?: string) {
-    super(client, apiKey, accessToken);
+  constructor(credentials: Credentials) {
+    super(client, credentials);
   }
 }
