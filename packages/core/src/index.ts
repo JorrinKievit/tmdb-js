@@ -627,6 +627,11 @@ export interface ITMDBAPI {
   };
 }
 
+export interface Credentials {
+  apiKey?: string;
+  accessToken?: string;
+}
+
 export interface Http {
   get<TResponse>(url: string, accessToken?: string): Promise<TResponse>;
 
@@ -637,33 +642,33 @@ export interface Http {
   delete<TResponse, TBody = undefined>(url: string, body?: TBody, accessToken?: string): Promise<TResponse>;
 }
 
-const createV3Methods = (client: Http, apiKey: string, v3Url: string) => {
+const createV3Methods = (client: Http, v3Url: string, credentials: Credentials) => {
   return {
-    account: createV3AccountMethods(client, apiKey, v3Url),
-    authentication: createV3AuthenticationMethods(client, apiKey, v3Url),
-    certifications: createV3CertificationsMethods(client, apiKey, v3Url),
-    changes: createV3ChangesMethods(client, apiKey, v3Url),
-    collections: createV3CollectionsMethods(client, apiKey, v3Url),
-    companies: createV3CompaniesMethods(client, apiKey, v3Url),
-    configuration: createV3ConfigurationMethods(client, apiKey, v3Url),
-    credits: createV3CreditsMethods(client, apiKey, v3Url),
-    discover: createV3DiscoverMethods(client, apiKey, v3Url),
-    find: createV3FindMethods(client, apiKey, v3Url),
-    genres: createV3GenresMethods(client, apiKey, v3Url),
-    guestSessions: createV3GuestSessionsMethods(client, apiKey, v3Url),
-    keywords: createV3KeywordsMethods(client, apiKey, v3Url),
-    lists: createV3ListsMethods(client, apiKey, v3Url),
-    movies: createV3MoviesMethods(client, apiKey, v3Url),
-    networks: createV3NetworksMethods(client, apiKey, v3Url),
-    trending: createV3TrendingMethods(client, apiKey, v3Url),
-    people: createV3PeopleMethods(client, apiKey, v3Url),
-    reviews: createV3ReviewsMethods(client, apiKey, v3Url),
-    search: createV3SearchMethods(client, apiKey, v3Url),
-    tv: createV3TvMethods(client, apiKey, v3Url),
-    tvSeasons: createV3TVSeasonsMethods(client, apiKey, v3Url),
-    tvEpisodes: createV3TVEpisodesMethods(client, apiKey, v3Url),
-    tvEpisodeGroups: createV3TVEpisodeGroupsMethods(client, apiKey, v3Url),
-    watchProviders: createV3WatchProvidersMethods(client, apiKey, v3Url),
+    account: createV3AccountMethods(client, v3Url, credentials),
+    authentication: createV3AuthenticationMethods(client, v3Url, credentials),
+    certifications: createV3CertificationsMethods(client, v3Url, credentials),
+    changes: createV3ChangesMethods(client, v3Url, credentials),
+    collections: createV3CollectionsMethods(client, v3Url, credentials),
+    companies: createV3CompaniesMethods(client, v3Url, credentials),
+    configuration: createV3ConfigurationMethods(client, v3Url, credentials),
+    credits: createV3CreditsMethods(client, v3Url, credentials),
+    discover: createV3DiscoverMethods(client, v3Url, credentials),
+    find: createV3FindMethods(client, v3Url, credentials),
+    genres: createV3GenresMethods(client, v3Url, credentials),
+    guestSessions: createV3GuestSessionsMethods(client, v3Url, credentials),
+    keywords: createV3KeywordsMethods(client, v3Url, credentials),
+    lists: createV3ListsMethods(client, v3Url, credentials),
+    movies: createV3MoviesMethods(client, v3Url, credentials),
+    networks: createV3NetworksMethods(client, v3Url, credentials),
+    trending: createV3TrendingMethods(client, v3Url, credentials),
+    people: createV3PeopleMethods(client, v3Url, credentials),
+    reviews: createV3ReviewsMethods(client, v3Url, credentials),
+    search: createV3SearchMethods(client, v3Url, credentials),
+    tv: createV3TvMethods(client, v3Url, credentials),
+    tvSeasons: createV3TVSeasonsMethods(client, v3Url, credentials),
+    tvEpisodes: createV3TVEpisodesMethods(client, v3Url, credentials),
+    tvEpisodeGroups: createV3TVEpisodeGroupsMethods(client, v3Url, credentials),
+    watchProviders: createV3WatchProvidersMethods(client, v3Url, credentials),
   };
 };
 
@@ -683,26 +688,32 @@ export default class TMDBAPI implements ITMDBAPI {
   v4: ITMDBAPI["v4"];
 
   private client: Http;
-  private apiKey: string;
+  private apiKey?: string;
   private accessToken?: string;
 
   setApiKey(apiKey: string) {
     this.apiKey = apiKey;
-    this.v3 = createV3Methods(this.client, this.apiKey, this.v3Url);
+    this.v3 = createV3Methods(this.client, this.v3Url, { apiKey, accessToken: this.accessToken });
   }
 
   setAccessToken(accessToken: string) {
     this.accessToken = accessToken;
+    this.v3 = createV3Methods(this.client, this.v3Url, { apiKey: this.apiKey, accessToken });
     this.v4 = createV4Methods(this.client, this.v4Url, this.accessToken);
   }
 
-  constructor(client: Http, apiKey: string, accessToken?: string) {
+  constructor(client: Http, { apiKey, accessToken }: Credentials) {
+    if (!apiKey && !accessToken) {
+      throw new Error("Either apiKey or accessToken must be provided");
+    }
+
     this.apiKey = apiKey;
     this.accessToken = accessToken;
 
     this.client = client;
 
-    this.v3 = createV3Methods(this.client, this.apiKey, this.v3Url);
+    this.v3 = createV3Methods(this.client, this.v3Url, { apiKey, accessToken });
+
     this.v4 = createV4Methods(this.client, this.v4Url, this.accessToken);
   }
 }

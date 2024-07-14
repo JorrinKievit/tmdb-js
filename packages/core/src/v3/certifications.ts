@@ -1,18 +1,14 @@
-import { Http, ITMDBAPI } from "..";
+import { Credentials, Http, ITMDBAPI } from "..";
 import { CertificationsGetMovieCertificationResponse, CertificationsGetTVCertificationResponse } from "../types/v3/certifications";
 import { buildV3Url } from "../utils/api";
 
-export const createV3CertificationsMethods = (client: Http, apiKey: string, apiUrl: string): ITMDBAPI["v3"]["certifications"] => {
+export const createV3CertificationsMethods = (client: Http, apiUrl: string, { apiKey, accessToken }: Credentials): ITMDBAPI["v3"]["certifications"] => {
   return {
     getMovieCertifications: async () => {
-      const res = await client.get<CertificationsGetMovieCertificationResponse>(buildV3Url(apiKey, `${apiUrl}certification/movie/list`));
-
-      return res;
+      return client.get<CertificationsGetMovieCertificationResponse>(buildV3Url(`${apiUrl}certification/movie/list`, apiKey), accessToken);
     },
     getTVShowCertifications: async () => {
-      const res = await client.get<CertificationsGetTVCertificationResponse>(buildV3Url(apiKey, `${apiUrl}certification/tv/list`));
-
-      return res;
+      return client.get<CertificationsGetTVCertificationResponse>(buildV3Url(`${apiUrl}certification/tv/list`, apiKey), accessToken);
     },
   };
 };

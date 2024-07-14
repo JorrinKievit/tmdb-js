@@ -1,4 +1,4 @@
-import { Http, ITMDBAPI } from "..";
+import { Credentials, Http, ITMDBAPI } from "..";
 import { MoviesAppendToResponse } from "../types/append-to-response";
 import { MoviesDeleteRatingResponse } from "../types/v3/movies/delete-rating";
 import { MoviesGetAccountStatesResponse } from "../types/v3/movies/get-account-states";
@@ -25,122 +25,76 @@ import { MoviesGetWatchProvidersResponse } from "../types/v3/movies/get-watch-pr
 import { MoviesRateMovieResponse } from "../types/v3/movies/rate-movie";
 import { buildV3Url } from "../utils/api";
 
-export const createV3MoviesMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["movies"] => {
+export const createV3MoviesMethods = (client: Http, url: string, { apiKey, accessToken }: Credentials): ITMDBAPI["v3"]["movies"] => {
   return {
     getDetails: async <T extends MoviesAppendToResponse[]>(movieId: number, params?: MoviesGetDetailsParams<T>) => {
-      const res = await client.get<MoviesGetDetailsResponse<T>>(buildV3Url(apiKey, `${url}movie/${movieId}`, params));
-
-      return res;
+      return client.get<MoviesGetDetailsResponse<T>>(buildV3Url(`${url}movie/${movieId}`, apiKey, params), accessToken);
     },
     getAccountStates: async (movieId, params) => {
-      const res = await client.get<MoviesGetAccountStatesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/account_states`, params));
-
-      return res;
+      return client.get<MoviesGetAccountStatesResponse>(buildV3Url(`${url}movie/${movieId}/account_states`, apiKey, params), accessToken);
     },
     getAlternativeTitles: async (movieId, params) => {
-      const res = await client.get<MoviesGetAlternativeTitlesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/alternative_titles`, params));
-
-      return res;
+      return client.get<MoviesGetAlternativeTitlesResponse>(buildV3Url(`${url}movie/${movieId}/alternative_titles`, apiKey, params), accessToken);
     },
     getChanges: async (movieId, params) => {
-      const res = await client.get<MoviesGetChangesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/changes`, params));
-
-      return res;
+      return client.get<MoviesGetChangesResponse>(buildV3Url(`${url}movie/${movieId}/changes`, apiKey, params), accessToken);
     },
     getCredits: async (movieId, params) => {
-      const res = await client.get<MoviesGetCreditsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/credits`, params));
-
-      return res;
+      return client.get<MoviesGetCreditsResponse>(buildV3Url(`${url}movie/${movieId}/credits`, apiKey, params), accessToken);
     },
     getExternalIds: async (movieId) => {
-      const res = await client.get<MoviesGetExternalIdsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/external_ids`));
-
-      return res;
+      return client.get<MoviesGetExternalIdsResponse>(buildV3Url(`${url}movie/${movieId}/external_ids`, apiKey), accessToken);
     },
     getImages: async (movieId, params) => {
-      const res = await client.get<MoviesGetImagesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/images`, params));
-
-      return res;
+      return client.get<MoviesGetImagesResponse>(buildV3Url(`${url}movie/${movieId}/images`, apiKey, params), accessToken);
     },
     getKeywords: async (movieId) => {
-      const res = await client.get<MoviesGetKeywordsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/keywords`));
-
-      return res;
+      return client.get<MoviesGetKeywordsResponse>(buildV3Url(`${url}movie/${movieId}/keywords`, apiKey), accessToken);
     },
     getLists: async (movieId, params) => {
-      const res = await client.get<MoviesGetListsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/lists`, params));
-
-      return res;
+      return client.get<MoviesGetListsResponse>(buildV3Url(`${url}movie/${movieId}/lists`, apiKey, params), accessToken);
     },
     getRecommendations: async (movieId, params) => {
-      const res = await client.get<MoviesGetRecommendationsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/recommendations`, params));
-
-      return res;
+      return client.get<MoviesGetRecommendationsResponse>(buildV3Url(`${url}movie/${movieId}/recommendations`, apiKey, params), accessToken);
     },
     getReleaseDates: async (movieId) => {
-      const res = await client.get<MoviesGetReleaseDatesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/release_dates`));
-
-      return res;
+      return client.get<MoviesGetReleaseDatesResponse>(buildV3Url(`${url}movie/${movieId}/release_dates`, apiKey), accessToken);
     },
     getReviews: async (movieId, params) => {
-      const res = await client.get<MoviesGetReviewsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/reviews`, params));
-
-      return res;
+      return client.get<MoviesGetReviewsResponse>(buildV3Url(`${url}movie/${movieId}/reviews`, apiKey, params), accessToken);
     },
     getSimilarMovies: async (movieId, params) => {
-      const res = await client.get<MoviesGetSimilarMoviesResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/similar`, params));
-
-      return res;
+      return client.get<MoviesGetSimilarMoviesResponse>(buildV3Url(`${url}movie/${movieId}/similar`, apiKey, params), accessToken);
     },
     getTranslations: async (movieId) => {
-      const res = await client.get<MoviesGetTranslationsResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/translations`));
-
-      return res;
+      return client.get<MoviesGetTranslationsResponse>(buildV3Url(`${url}movie/${movieId}/translations`, apiKey), accessToken);
     },
     getVideos: async (movieId, params) => {
-      const res = await client.get<MoviesGetVideosResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/videos`, params));
-
-      return res;
+      return client.get<MoviesGetVideosResponse>(buildV3Url(`${url}movie/${movieId}/videos`, apiKey, params), accessToken);
     },
     getWatchProviders: async (movieId) => {
-      const res = await client.get<MoviesGetWatchProvidersResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/watch/providers`));
-
-      return res;
+      return client.get<MoviesGetWatchProvidersResponse>(buildV3Url(`${url}movie/${movieId}/watch/providers`, apiKey), accessToken);
     },
     rateMovie: async (movieId, body, params) => {
-      const res = await client.post<MoviesRateMovieResponse, typeof body>(buildV3Url(apiKey, `${url}movie/${movieId}/rating`, params), body);
-
-      return res;
+      return client.post<MoviesRateMovieResponse, typeof body>(buildV3Url(`${url}movie/${movieId}/rating`, apiKey, params), body, accessToken);
     },
     deleteRating: async (movieId, params) => {
-      const res = await client.delete<MoviesDeleteRatingResponse>(buildV3Url(apiKey, `${url}movie/${movieId}/rating`, params));
-
-      return res;
+      return client.delete<MoviesDeleteRatingResponse>(buildV3Url(`${url}movie/${movieId}/rating`, apiKey, params), undefined, accessToken);
     },
     getLatest: async () => {
-      const res = await client.get<MoviesGetLatestResponse>(buildV3Url(apiKey, `${url}movie/latest`));
-
-      return res;
+      return client.get<MoviesGetLatestResponse>(buildV3Url(`${url}movie/latest`, apiKey), accessToken);
     },
     getNowPlaying: async (params) => {
-      const res = await client.get<MoviesGetNowPlayingResponse>(buildV3Url(apiKey, `${url}movie/now_playing`, params));
-
-      return res;
+      return client.get<MoviesGetNowPlayingResponse>(buildV3Url(`${url}movie/now_playing`, apiKey, params), accessToken);
     },
     getPopular: async (params) => {
-      const res = await client.get<MoviesGetPopularResponse>(buildV3Url(apiKey, `${url}movie/popular`, params));
-
-      return res;
+      return client.get<MoviesGetPopularResponse>(buildV3Url(`${url}movie/popular`, apiKey, params), accessToken);
     },
     getTopRated: async (params) => {
-      const res = await client.get<MoviesGetTopRatedResponse>(buildV3Url(apiKey, `${url}movie/top_rated`, params));
-
-      return res;
+      return client.get<MoviesGetTopRatedResponse>(buildV3Url(`${url}movie/top_rated`, apiKey, params), accessToken);
     },
     getUpcoming: async (params) => {
-      const res = await client.get<MoviesGetUpcomingResponse>(buildV3Url(apiKey, `${url}movie/upcoming`, params));
-
-      return res;
+      return client.get<MoviesGetUpcomingResponse>(buildV3Url(`${url}movie/upcoming`, apiKey, params), accessToken);
     },
   };
 };

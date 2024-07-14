@@ -1,4 +1,4 @@
-import { Http, ITMDBAPI } from "..";
+import { Credentials, Http, ITMDBAPI } from "..";
 import { SearchMultiSearchResponse } from "../types/v3/search/multi-search";
 import { SearchCollectionsResponse } from "../types/v3/search/search-collections";
 import { SearchCompaniesResponse } from "../types/v3/search/search-companies";
@@ -8,42 +8,28 @@ import { SearchPeopleResponse } from "../types/v3/search/search-people";
 import { SearchTVShowsResponse } from "../types/v3/search/search-tvshows";
 import { buildV3Url } from "../utils/api";
 
-export const createV3SearchMethods = (client: Http, apiKey: string, url: string): ITMDBAPI["v3"]["search"] => {
+export const createV3SearchMethods = (client: Http, url: string, { apiKey, accessToken }: Credentials): ITMDBAPI["v3"]["search"] => {
   return {
     searchCompanies: async (params) => {
-      const res = await client.get<SearchCompaniesResponse>(buildV3Url(apiKey, `${url}search/company`, params));
-
-      return res;
+      return client.get<SearchCompaniesResponse>(buildV3Url(`${url}search/company`, apiKey, params), accessToken);
     },
     searchCollections: async (params) => {
-      const res = await client.get<SearchCollectionsResponse>(buildV3Url(apiKey, `${url}search/collection`, params));
-
-      return res;
+      return client.get<SearchCollectionsResponse>(buildV3Url(`${url}search/collection`, apiKey, params), accessToken);
     },
     searchKeywords: async (params) => {
-      const res = await client.get<SearchKeywordsResponse>(buildV3Url(apiKey, `${url}search/keyword`, params));
-
-      return res;
+      return client.get<SearchKeywordsResponse>(buildV3Url(`${url}search/keyword`, apiKey, params), accessToken);
     },
     searchMovies: async (params) => {
-      const res = await client.get<SearchMoviesResponse>(buildV3Url(apiKey, `${url}search/movie`, params));
-
-      return res;
+      return client.get<SearchMoviesResponse>(buildV3Url(`${url}search/movie`, apiKey, params), accessToken);
     },
     searchMulti: async (params) => {
-      const res = await client.get<SearchMultiSearchResponse>(buildV3Url(apiKey, `${url}search/multi`, params));
-
-      return res;
+      return client.get<SearchMultiSearchResponse>(buildV3Url(`${url}search/multi`, apiKey, params), accessToken);
     },
     searchPeople: async (params) => {
-      const res = await client.get<SearchPeopleResponse>(buildV3Url(apiKey, `${url}search/person`, params));
-
-      return res;
+      return client.get<SearchPeopleResponse>(buildV3Url(`${url}search/person`, apiKey, params), accessToken);
     },
     searchTV: async (params) => {
-      const res = await client.get<SearchTVShowsResponse>(buildV3Url(apiKey, `${url}search/tv`, params));
-
-      return res;
+      return client.get<SearchTVShowsResponse>(buildV3Url(`${url}search/tv`, apiKey, params), accessToken);
     },
   };
 };

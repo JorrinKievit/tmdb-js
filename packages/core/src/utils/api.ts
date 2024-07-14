@@ -1,4 +1,4 @@
-export const buildV3Url = <TParams>(apiKey: string, url: string, params?: TParams) => {
+export const buildV3Url = <TParams>(url: string, apiKey?: string, params?: TParams) => {
   const searchParams = new URLSearchParams();
   if (params) {
     for (const [key, value] of Object.entries(params)) {
@@ -9,8 +9,9 @@ export const buildV3Url = <TParams>(apiKey: string, url: string, params?: TParam
       }
     }
   }
-  const urlEndpoint = `${url}?api_key=${apiKey}${params ? `&${searchParams.toString()}` : ""}`;
-  return urlEndpoint;
+  if (apiKey) searchParams.append("api_key", apiKey);
+
+  return `${url}?${searchParams.toString()}`;
 };
 
 export const buildV4Url = <TParams>(url: string, params?: TParams) => {
@@ -24,6 +25,5 @@ export const buildV4Url = <TParams>(url: string, params?: TParams) => {
       }
     }
   }
-  const urlEndpoint = `${url}${params ? `?${searchParams.toString()}` : ""}`;
-  return urlEndpoint;
+  return `${url}?${searchParams.toString()}`;
 };
