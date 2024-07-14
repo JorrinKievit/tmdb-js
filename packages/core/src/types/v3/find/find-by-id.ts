@@ -56,7 +56,7 @@ export interface FindFindByIdPersonResultKnownForTV {
   overview: string;
   backdrop_path: string;
   vote_average: number;
-  media_type: string;
+  media_type: "movie" | "tv";
   first_air_date: string;
   origin_country: string[];
   genre_ids: number[];

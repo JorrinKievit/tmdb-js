@@ -1,5 +1,5 @@
 export interface V4ListCheckItemStatusResponse {
-  media_type: string;
+  media_type: "movie" | "tv";
   success: boolean;
   status_message: string;
   id: number;
@@ -9,5 +9,5 @@ export interface V4ListCheckItemStatusResponse {
 
 export interface V4ListCheckItemStatusParams {
   media_id: number;
-  media_type: string;
+  media_type: "movie" | "tv";
 }

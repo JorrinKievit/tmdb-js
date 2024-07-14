@@ -7,7 +7,7 @@ export interface ReviewsGetDetailsResponse {
   iso_639_1: string;
   media_id: number;
   media_title: string;
-  media_type: string;
+  media_type: "movie" | "tv";
   updated_at: string;
   url: string;
 }

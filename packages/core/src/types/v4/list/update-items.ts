@@ -1,12 +1,12 @@
 export interface V4ListUpdateItemsResponse {
-  status_message: string;
+  status_message: "movie" | "tv";
   results: V4ListUpdateItemsResult[];
   success: boolean;
   status_code: number;
 }
 
 export interface V4ListUpdateItemsResult {
-  media_type: string;
+  media_type: "movie" | "tv";
   media_id: number;
   success: boolean;
 }
@@ -16,7 +16,7 @@ export interface V4ListUpdateItemsBody {
 }
 
 export interface V4ListUpdateItemsItem {
-  media_type: string;
+  media_type: "movie" | "tv";
   media_id: number;
   comment: string;
 }
