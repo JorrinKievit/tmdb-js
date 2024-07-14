@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.3.0
+
+### Minor Changes
+
+- 276293c: Allow the usage of a bearer token in v3 endpoints
+
 ## 1.2.0
 
 ### Minor Changes
