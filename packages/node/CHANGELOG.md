@@ -1,5 +1,11 @@
 # tmdb-js-node
 
+## 1.3.1
+
+### Patch Changes
+
+- 1138298: Make media_type field typesafe
+
 ## 1.3.0
 
 ### Minor Changes
